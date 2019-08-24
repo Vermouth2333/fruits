@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
-
+import {routeConfig} from "@router"
+import {Switch,Redirect,Route} from "react-router-dom";
 export default class App extends Component {
   render() {
     return (
-      <div>
-       
-      </div>
+      <Switch>
+          <Redirect from="/" to="/home" exact/>
+          {
+            routeConfig.map((item,index)=>(
+              <Route path={item.path} key={index} render={()=>(
+                <item.component/>
+              )}/>
+            ))
+          }
+      </Switch>
     )
   }
 }
