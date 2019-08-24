@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {routeConfig} from "@router"
 import {Switch,Redirect,Route} from "react-router-dom";
+import BaseRoute from "@common/baseRoute";
 export default class App extends Component {
   render() {
     return (
@@ -8,9 +9,7 @@ export default class App extends Component {
           <Redirect from="/" to="/home" exact/>
           {
             routeConfig.map((item,index)=>(
-              <Route path={item.path} key={index} render={()=>(
-                <item.component/>
-              )}/>
+               <BaseRoute key={index} {...item}/>
             ))
           }
       </Switch>

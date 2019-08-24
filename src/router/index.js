@@ -38,7 +38,8 @@ export const tabBarRoute = [
         path:"/mine",
         component:Mine,
         meta:{
-            flag:true
+            flag:true,
+            auth:true
         },
         name:"我的",
         icon:"\ue617"
