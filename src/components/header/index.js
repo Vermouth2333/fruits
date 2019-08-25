@@ -7,7 +7,7 @@ export default class Header extends Component {
             <HeaderWrapper >
                 <div className="header_l">分类</div>
                 <div className="header_c">
-                    <img src={logo}/>
+                    <img src={logo} alt="Logo"/>
                 </div>
                 <div className="header_r">
                     <div>登陆</div>

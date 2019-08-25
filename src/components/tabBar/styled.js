@@ -33,7 +33,7 @@ export const TabBarWrapper = styled.div`
             font-size:.3rem;
         }
         .active{
-            color:#c33;
+            color:#75a739;
         }
     }
 `

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { WeekWrapper } from "./styled";
-import { setState } from 'expect/build/jestMatchersObject';
+//import { setState } from 'expect/build/jestMatchersObject';
 import { week_choice } from "@api/week"
 import BScrollComponent from "@common/bscroll";
 import {connect} from "react-redux";

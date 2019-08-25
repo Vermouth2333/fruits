@@ -6,13 +6,13 @@ const Home = Loadable({
     loading:Loading
 })
 
-const Find = Loadable({
-    loader:()=>import("./find"),
+const Search = Loadable({
+    loader:()=>import("./search"),
     loading:Loading
 })
 
-const Order = Loadable({
-    loader:()=>import("./order"),
+const Type = Loadable({
+    loader:()=>import("./type"),
     loading:Loading
 })
 
@@ -26,11 +26,17 @@ const Login = Loadable({
     loading:Loading
 })
 
+const Carts = Loadable({
+    loader:()=>import("./carts"),
+    loading:Loading
+})
+
 
 export {
     Home,
-    Find,
-    Order,
+    Search,
+    Type,
+    Login,
     Mine,
-    Login
+    Carts,
 }

@@ -1,61 +1,75 @@
 import {
     Home,
-    Find,
-    Order,
+    Search,
+    Type,
+    Login,
     Mine,
-    Login
+    Carts,
 } from "@pages"
 
-export const tabBarRoute = [
+export  const tabBarRoute=[
     {
-        path:"/home",
+        path:'/home',
         component:Home,
         meta:{
             flag:true
         },
-        name:"首页",
-        icon:"\ue628"
+        name:'首页',
+        icon:"\ue502",       
     },
+   
     {
-        path:"/find",
-        component:Find,
+        path:'/type',
+        component:Type,
         meta:{
             flag:true
         },
-        name:"发现",
-        icon:"\ue663"
+        name:'分类',
+        icon:"\ue513"
+              
     },
+    
     {
-        path:"/order",
-        component:Order,
+        path:'/carts',
+        component:Carts,
         meta:{
             flag:true
         },
-        name:"订单",
-        icon:"\ue737"
+        name:'购物车',
+        icon:"\ue619",       
     },
+
     {
-        path:"/mine",
+        path:'/mine',
         component:Mine,
         meta:{
-            flag:true,
-            auth:true
+            flag:true
         },
-        name:"我的",
-        icon:"\ue617"
-    }
-]
+        name:'我的',
+        icon:"\ue538",       
+    },
+ 
 
-export const noTabBarRoute = [
+]
+export const noTabBarRoute=[
     {
-        path:"/login",
+        
+        path:'/login',
         component:Login,
         meta:{
             flag:false
         },
-        name:"登陆",
-       
-    }
+        name:'登录',
+    },
+    {
+        path:'/search',
+        component:Search,
+        meta:{
+            flag:false
+        },
+        name:'搜索',
+          
+    },
+    
 ]
-
-export const routeConfig = tabBarRoute.concat(noTabBarRoute)
+export const routerConfig=tabBarRoute.concat(noTabBarRoute)
