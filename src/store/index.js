@@ -1,11 +1,11 @@
 import {createStore,combineReducers,applyMiddleware} from "redux"
 import reduxThunk from "redux-thunk"
-import week from "./reducers/week_choice"
 import city from "./reducers/city"
+import TypeList from "./reducers/typelist"
 
 const reducer = combineReducers({
-    week,
-    city
+    city,
+    TypeList,
 })
 
 const store = createStore(reducer,applyMiddleware(reduxThunk));

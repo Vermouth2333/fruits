@@ -5,6 +5,7 @@ import {
     Login,
     Mine,
     Carts,
+    List,
 } from "@pages"
 
 export  const tabBarRoute=[
@@ -15,7 +16,7 @@ export  const tabBarRoute=[
             flag:true
         },
         name:'首页',
-        icon:"\ue502",       
+        icon:"\ue502",
     },
    
     {
@@ -70,6 +71,15 @@ export const noTabBarRoute=[
         name:'搜索',
           
     },
-    
+    {
+        path:'/list',
+        component:List,
+        meta:{
+            flag:false
+        },
+        name:'列表',
+          
+    },
+
 ]
 export const routerConfig=tabBarRoute.concat(noTabBarRoute)

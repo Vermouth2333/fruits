@@ -17,7 +17,7 @@ const get = (url,data)=>{
     }).then(res=>res.json());
 
     return result;
-        
+
 
 }
 

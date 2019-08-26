@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
+import {Page} from "@common/commonStyled"
+
 import Header from "../../components/xrrcomponents/header"
-import Kinds from "../../components/xrrcomponents/kinds"
+import KindsList from "../../components/xrrcomponents/kindslist"
 export default class Type extends Component {
     render() {
         return (
-            <div>
+            <Page>
                 <Header/>
-                <Kinds/>
-            </div>
+                <KindsList/>
+            </Page>
         )
     }
 }

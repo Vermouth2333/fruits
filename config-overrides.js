@@ -2,7 +2,7 @@ const { override, addWebpackAlias } = require('customize-cra');
 const path = require("path");
 module.exports = override(
     //别名配置
-    addWebpackAlias({        
+    addWebpackAlias({
         ["@"]:path.resolve(__dirname,"./src"),
         ["@actions"]:path.resolve(__dirname,"./src/actions"),
         ["@api"]:path.resolve(__dirname,"./src/api"),
