@@ -5,4 +5,5 @@ module.exports = (app)=>{
         target:"https://wap.fruitday.com",
         changeOrigin:true,
     }))
+   
 }
