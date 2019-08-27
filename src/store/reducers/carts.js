@@ -10,7 +10,7 @@ export default handleActions({
     GOODS_CARTS:(state,action)=>{
         console.log(action)
         let goodsState = Object.assign({},state);
-        goodsState.cartsGoods = action.payload.data;
+        goodsState.cartsGoods.push(action.payload);
         return goodsState;
     }
 
