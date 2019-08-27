@@ -39,7 +39,6 @@ import {mapStateToProps,mapDispatchToProps} from "./connect";
                             </div>
                         ))
                     }
-
                 </WeekWrapper>
             </BScrollComponent>
         )
@@ -62,7 +61,6 @@ import {mapStateToProps,mapDispatchToProps} from "./connect";
                 weekGoods: [...this.state.weekGoods,...data],
                 page:++this.state.page
             })
-           
         }
     }
 }

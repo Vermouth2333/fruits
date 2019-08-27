@@ -7,7 +7,7 @@ import auth from "@common/auth"
         let {component,path,...rest} = this.props;
         return (
             <Layout {...rest}>
-                <Route path={path} component={component}/>
+                <Route path={path} component={component}/>              
             </Layout>
         )
     }

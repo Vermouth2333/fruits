@@ -1,7 +1,11 @@
 import styled from "styled-components"
 
 export const HeaderWrapper = styled.div`
-    height:0.88rem;
+    width: 100%;
+    height: .88rem;
+    position: fixed;
+    left: 0;
+    top: 0;
     width:100%;
     border-bottom:.01rem solid #a0a0a0;
     h2{

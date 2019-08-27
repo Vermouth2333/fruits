@@ -1,14 +1,39 @@
 import React, { Component } from 'react'
-import Header from '@components/carts/header'
+import NoShopHeader from '@components/carts/noShopHeader'
+import ShopHeader from '@components/carts/shopHeader'
+import {connect} from 'react-redux';
+import {Page} from "@common/commonStyled"
 import NoShopCenterWrapper from '@components/carts/noshop'
+import ShopCenterWrapper from "@components/carts/shop"
+import {mapStateToProps,mapDispatchToProps} from './connect';
 
-export default class Carts extends Component {
+ class Carts extends Component {
+     constructor(props){
+        super(props);
+        let {cartsShops} = this.props;
+        console.log(this.props)
+        this.state={
+            showCartsPage:cartsShops.length===0?2:1
+        }
+    }
     render() {
+        let {showCartsPage} = this.state;
         return (
-            <div>
-                <Header/>
-                <NoShopCenterWrapper/>
-            </div>
+                <Page>
+                    <div style={{display:showCartsPage===2?"block":"none",height:"auto"}}>
+                        <NoShopHeader/>
+                    </div>
+                    <div style={{display:showCartsPage===1?"block":"none",height:"auto"}}>
+                        <ShopHeader/>
+                    </div>
+                    <div className="shopbox" style={{display:showCartsPage===2?"block":"none"}}>
+                        <NoShopCenterWrapper/>
+                    </div>
+                    <div className="shopbox" style={{display:showCartsPage===1?"block":"none",height:"100%"}}>
+                        <ShopCenterWrapper/>
+                    </div>
+                </Page>
         )
     }
 }
+export default connect(mapStateToProps,mapDispatchToProps)(Carts);

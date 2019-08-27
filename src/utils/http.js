@@ -8,7 +8,7 @@ const get = (url,data)=>{
     }
 
     url = url+"?"+str.substr(1);
-
+ 
     let result = fetchPro(url,{
         credentials:"include",
         headers:{
@@ -16,9 +16,7 @@ const get = (url,data)=>{
         }
     }).then(res=>res.json());
 
-    return result;
-        
-
+    return result;        
 }
 
 const post = (url,data)=>{
@@ -33,7 +31,6 @@ const post = (url,data)=>{
 
     return result;
 }
-
 
 export default {
     get,
