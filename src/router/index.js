@@ -6,6 +6,8 @@ import {
     Mine,
     Carts,
     List,
+    Des,
+    Detail,
 } from "@pages"
 
 export  const tabBarRoute=[
@@ -13,7 +15,7 @@ export  const tabBarRoute=[
         path:'/home',
         component:Home,
         meta:{
-            flag:true
+            flag:true,
         },
         name:'首页',
         icon:"\ue502",
@@ -23,7 +25,7 @@ export  const tabBarRoute=[
         path:'/type',
         component:Type,
         meta:{
-            flag:true
+            flag:true,
         },
         name:'分类',
         icon:"\ue513"
@@ -34,7 +36,7 @@ export  const tabBarRoute=[
         path:'/carts',
         component:Carts,
         meta:{
-            flag:true
+            flag:true,
         },
         name:'购物车',
         icon:"\ue619",       
@@ -44,13 +46,14 @@ export  const tabBarRoute=[
         path:'/mine',
         component:Mine,
         meta:{
-            flag:true
+            flag:true,
+            auth:true,
         },
         name:'我的',
         icon:"\ue538",       
     },
- 
-
+   
+    
 ]
 export const noTabBarRoute=[
     {
@@ -58,7 +61,7 @@ export const noTabBarRoute=[
         path:'/login',
         component:Login,
         meta:{
-            flag:false
+            flag:false,
         },
         name:'登录',
     },
@@ -66,7 +69,7 @@ export const noTabBarRoute=[
         path:'/search',
         component:Search,
         meta:{
-            flag:false
+            flag:false,
         },
         name:'搜索',
           
@@ -75,11 +78,27 @@ export const noTabBarRoute=[
         path:'/list',
         component:List,
         meta:{
-            flag:false
+            flag:false,
+            
         },
         name:'列表',
-          
+             
     },
-
+    {
+        path:'/des',
+        component:Des,
+        meta:{
+            flag:false,        
+        },
+        name:'列表',             
+    },
+    {
+        path:'/detail',
+        component:Detail,
+        meta:{
+            flag:false,        
+        },
+        name:'详情',             
+    },
 ]
 export const routerConfig=tabBarRoute.concat(noTabBarRoute)
