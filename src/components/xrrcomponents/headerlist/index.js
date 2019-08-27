@@ -30,7 +30,7 @@ class HeaderList extends Component {
         this.state.class3_id = class3_id;
     }
     render() {
-        let { brotherClass, productGroup, fatherClass, activeindex, status } = this.state
+        let { brotherClass, productGroup, fatherClass, activeindex, status } = this.state;
         return (
             <HeaderListWrapper>
                 <header>
@@ -108,8 +108,8 @@ class HeaderList extends Component {
         this.handleGetListdata();
         this.handleNavIdData();
     }
-    async handleGetListdata() {
-        let data = await list_kinds_types(3, 30, this.state.class3_id, 1, 1);
+    async handleGetListdata(){
+        let data = await list_kinds_types(3,30,this.state.class3_id,1,1);
         this.setState({
             brotherClass: data.data.brotherClass,
             productGroup: data.data.productGroup,

@@ -22,21 +22,21 @@ class WeekChoice extends Component {
                             <img src={list[4]?list[4].content[0].image:'' } alt=""/>
                         </div>
                         <div className='pay_right'>
-                            <div className='pay_l_t'> <img src={list[4]?list[4].content[1].image:''}/></div>
-                            <div className='pay_l_b'> <img src={list[4]?list[4].content[2].image:''} alt=""/></div>
+                            <div className='pay_l_t'> <img  alt='' src={list[4]?list[4].content[1].image:''}/></div>
+                            <div className='pay_l_b'> <img  alt='' src={list[4]?list[4].content[2].image:''}/></div>
                         </div>                       
                     </div>
                     <div className='eat'>
-                        <img src={list[5]?list[5].content[0].image:''}/>
+                        <img  alt='' src={list[5]?list[5].content[0].image:''}/>
                     </div>
-                    <div className='eat_b'><img src={list[6]?list[6].content[0].image:''}/></div>
+                    <div className='eat_b'><img   alt=''src={list[6]?list[6].content[0].image:''}/></div>
                     <div className='fruit_1'>
                         <ul>
                         {
                             list[7]?list[7].content.map((item,index)=>(                           
                             <li key={index}>
                             <NavLink to='/list'>
-                                <img src={item.image}/>
+                                <img   alt=''src={item.image}/>
                                 <p className='text'>{item.subtitle}</p>
                                 <p className='price'>
                                     <span>￥{item.guide_price}/{item.volume}</span>
