@@ -6,6 +6,8 @@ import 'swiper/dist/css/swiper.css'
 import {list_kinds_types} from "@api/xrrapi"
 import {withRouter} from "react-router-dom";
 import {Link} from "react-router-dom";
+import {sendAsyncDataToCarts}  from "@actions/xrractions/actionCreator.js"
+import store from "@store"
 const url = require("url");
 
 class HeaderList extends Component {
@@ -117,7 +119,7 @@ class HeaderList extends Component {
         obj.pic=item.photo;
         obj.price=item.price;
         obj.weight=item.volume
-        
+        store.dispatch(sendAsyncDataToCarts(obj))
     }
 
 }
