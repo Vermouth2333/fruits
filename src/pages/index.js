@@ -30,8 +30,18 @@ const Carts = Loadable({
     loader:()=>import("./carts"),
     loading:Loading
 })
-
-
+const List = Loadable({
+    loader:()=>import("./list"),
+    loading:Loading
+})
+const Des = Loadable({
+    loader:()=>import("./search/des"),
+    loading:Loading
+})
+const Detail = Loadable({
+    loader:()=>import("./detail"),
+    loading:Loading
+})
 export {
     Home,
     Search,
@@ -39,4 +49,7 @@ export {
     Login,
     Mine,
     Carts,
+    List,
+    Des,
+    Detail,
 }

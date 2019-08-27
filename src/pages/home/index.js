@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Header from "@components/header"
+import Header from "@components/header_home"
 import {Page} from "@common/commonStyled"
 import WeekChoice from "@components/week_choice"
 export default class Home extends Component {
