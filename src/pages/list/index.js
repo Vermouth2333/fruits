@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import {Page} from "@common/commonStyled"
+import React, { Component,Fragment } from 'react'
 import HeaderList from "@components/xrrcomponents/headerlist"
+import CartsLeft from "@components/xrrcomponents/cartsleftbottom"
 export default class List extends Component {
     render() {
         return (
-            <Page>
+            <Fragment>
                 <HeaderList/>
-                
-            </Page>
+                <CartsLeft/>
+            </Fragment>
         )
     }
 }
