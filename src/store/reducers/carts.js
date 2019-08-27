@@ -2,16 +2,31 @@ import {handleActions} from "redux-actions";
 
 const defaultState = {
     //购物车数据id
-    cartsShops:[1,2,3,4,5,6,7,8],
     cartsGoods:[]
 }
 
 export default handleActions({
     GOODS_CARTS:(state,action)=>{
-        console.log(action)
-        let goodsState = Object.assign({},state);
+        let goodsState = JSON.parse(JSON.stringify(state));
         goodsState.cartsGoods.push(action.payload);
+        console.log(goodsState.cartsGoods);
         return goodsState;
-    }
-
+    },
+    ADD_NUMBER:(state,action)=>{
+        let addNumState = JSON.parse(JSON.stringify(state));
+        addNumState.cartsGoods[action.payload].num++;
+        return addNumState;
+    },
+    SUB_NUMBER:(state,action)=>{
+        let subNumState = JSON.parse(JSON.stringify(state));
+        if(subNumState.cartsGoods[action.payload].num!==1){
+            subNumState.cartsGoods[action.payload].num--;
+        }
+        return subNumState;
+    },
+    SHOP_SELECT:(state,action)=>{
+        let shopSelectState = JSON.parse(JSON.stringify(state));
+            shopSelectState.cartsGoods[action.payload].flag=!shopSelectState.cartsGoods[action.payload].flag;
+        return shopSelectState;
+    },
 },defaultState)

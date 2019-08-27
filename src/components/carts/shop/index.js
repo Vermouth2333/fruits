@@ -20,7 +20,6 @@ export default class Shop extends Component {
                             </div>
                             <div className="detailedList">
                                 <span>商品清单</span>
-                                <span>总重约9.94kg</span>
                             </div>
                             <List/>
                         </div>

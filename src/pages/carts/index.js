@@ -10,10 +10,9 @@ import {mapStateToProps,mapDispatchToProps} from './connect';
  class Carts extends Component {
      constructor(props){
         super(props);
-        let {cartsShops} = this.props;
-        console.log(this.props)
+        let {cartsGoods} = this.props;
         this.state={
-            showCartsPage:cartsShops.length===0?2:1
+            showCartsPage:cartsGoods.length===0?2:1
         }
     }
     render() {

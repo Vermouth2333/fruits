@@ -26,7 +26,7 @@ class Kinds extends Component {
 
                             <li key={index}
                                 onClick={this.handleListClick.bind(this, index,item.id)}
-                                className={activeindex == index ? "leftlink_child active" : "leftlink_child"}
+                                className={activeindex === index ? "leftlink_child active" : "leftlink_child"}
                             >
                                 {item.name}
                             </li>

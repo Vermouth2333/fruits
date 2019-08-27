@@ -13,7 +13,6 @@ export const goodsTypesAsyncAction = ()=>{
 export const sendDataToCarts = createAction("GOODS_CARTS",(val)=>val);
 export const sendAsyncDataToCarts = (val)=>{
     return (dispatch)=>{
-        
         dispatch(sendDataToCarts(val))
     }
 }
