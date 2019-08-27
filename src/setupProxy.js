@@ -5,9 +5,4 @@ module.exports = (app)=>{
         target:"https://wap.fruitday.com",
         changeOrigin:true,
     }))
-    
-    app.use(proxy("/v3",{
-        target:"https://wap.fruitday.com",
-        changeOrigin:true,
-    }))
 }
