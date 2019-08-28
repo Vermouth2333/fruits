@@ -8,7 +8,7 @@ const reducer = combineReducers({
     carts,
     TypeList,
     home,
-    search,   
+    search,
 })
 const store = createStore(reducer,applyMiddleware(reduxThunk));
 
