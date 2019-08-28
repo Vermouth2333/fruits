@@ -11,7 +11,8 @@ import {withRouter} from 'react-router-dom'
              val:''
          }
      }
-    render() {        
+    render() { 
+        let {inputVal}=this.props       
         return (
             <HeaderSWrapper>
                 <div className='header_l' onClick={this.props.handleBack.bind(this)}>
@@ -20,7 +21,7 @@ import {withRouter} from 'react-router-dom'
                 </div>
                 <div className='header_c'>
                     <i className='iconfont icon-fangdajing'></i>
-                    <input type="text" placeholder='新鲜水果 生鲜' value={this.state.val} onChange={this.props.handleChange.bind(this)}/>
+                    <input type="text" placeholder='新鲜水果 生鲜' value={inputVal?inputVal:this.state.val} onChange={this.props.handleChange.bind(this)}/>
                     </div>
                 <div className='header_r'>搜索</div>  
             </HeaderSWrapper>

@@ -40,7 +40,7 @@ class WeekChoice extends Component {
                                 <p className='text'>{item.subtitle}</p>
                                 <p className='price'>
                                     <span>￥{item.guide_price}/{item.volume}</span>
-                                    <i className='iconfont icon-add_circle'></i>
+                                    <i className='iconfont icon-add_circle' onClick={this.props.handleToCart.bind(this,item)}></i>
                                 </p>
                              </NavLink>   
                             </li>                            

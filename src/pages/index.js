@@ -42,6 +42,10 @@ const Detail = Loadable({
     loader:()=>import("./detail"),
     loading:Loading
 })
+const City = Loadable({
+    loader:()=>import("./city"),
+    loading:Loading
+})
 export {
     Home,
     Search,
@@ -52,4 +56,5 @@ export {
     List,
     Des,
     Detail,
+    City,
 }

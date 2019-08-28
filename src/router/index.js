@@ -8,6 +8,7 @@ import {
     List,
     Des,
     Detail,
+    City,
 } from "@pages"
 
 export  const tabBarRoute=[
@@ -99,6 +100,14 @@ export const noTabBarRoute=[
             flag:false,        
         },
         name:'详情',             
+    },
+    {
+        path:'/city',
+        component:City,
+        meta:{
+            flag:false,        
+        },
+        name:'城市列表',             
     },
 ]
 export const routerConfig=tabBarRoute.concat(noTabBarRoute)

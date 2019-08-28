@@ -46,10 +46,11 @@ export const HeaderWrapper = styled.div`
     .header_right{
         position:absolute;
         right:0rem;
-        top:0.2rem;
+        top:0rem;
         padding-right:.32rem;                     
         i{
-            font-size:.35rem;                      
+            font-size:.5rem;
+            color: #65a032;                     
         }
     }
    

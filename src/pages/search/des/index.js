@@ -1,28 +1,55 @@
 import React, { Component } from 'react'
 import Header from '../header_search'
 import { ContentSWrapper } from './styled'
-import {NavLink} from 'react-router-dom'
-export default class componentName extends Component {
-    render() {
+import { Link } from 'react-router-dom'
+import { connect } from "react-redux"
+import '../../../components/xrrcomponents/iconfont/iconfont.css'
+import { mapStateToProps, mapDispatchToProps } from './connect'
+ class Des extends Component {
+     constructor(){
+         super()
+         this.state={
+             list:[]
+         }
+     }
+     
+    render() {        
+        let {list}=this.props
+        sessionStorage.setItem("list",JSON.stringify(this.props.list)) 
+        // this.setState ({
+        //     list:JSON.parse(sessionStorage.getItem("list"))?sessionStorage.setItem("list",JSON.stringify(this.props)):this.props.list 
+        // }) 
+        console.log(this.state.list,"render")
         return (
             <div>
                 <Header />
                 <ContentSWrapper>
                     <div className="content">
-                        <div className="main">
-                            <NavLink to='/detail' className='item'>                           
-                                <img className="good-img" src='https://imgqn8.fruitday.com/images/product_pic/4001/1/1-370x370-4001-XTUR7FCK.jpg' alt="" />
-                                <dl >
-                                    <dt>韩式花枝丸(九生堂)（请于2019年10月22日前食用）</dt>
-                                    <dd>大颗目鱼粒 轻松自制关东煮</dd> <dd>160g（临期）</dd>
+                        <div className="main">                           
+                            {
+                                list.map((item,index)=>(                                    
+                                    <Link className="item" to={"/detail?product_id="+item.id} key={index}>
+                                    <img className="good-img" src={item.photo} alt={item.product_name} />
+                                <dl className="">
+                                    <dt>{item.product_name}</dt>
+                                    <dd>{item.product_desc}</dd> <dd>{item.volume}</dd>
                                     <div>
                                         <small>￥</small>
-                                        <big>24.</big>
-                                        <small>50</small>
+                                        <big>{item.price}</big>
+                                        
                                         <span style={{ background: "#FF8000" }}>明日达  </span>
                                     </div>
                                 </dl>
-                            </NavLink>
+                                <div className="count">
+                                    <span className="plus">
+                                        <i className="iconfont icon-add_circle" onClick={this.props.handleToCars.bind(this,item)}></i>
+                                    </span>
+                                </div>
+                                </Link>
+                                ))
+                            }
+                                
+                          
                         </div>
                     </div>
 
@@ -30,9 +57,20 @@ export default class componentName extends Component {
             </div>
         )
     }
-}
-//   <div className="count">
-// <span className="plus">
-// <i className="iconfont icon-add_circle" ></i>
-// </span>
-// </div>
+    
+  } 
+export default connect(mapStateToProps, mapDispatchToProps)(Des)
+// // <Link to={"/detail?id="+item.id+"&name="+item.name}></Link>
+// componentDidMount(){
+//     if(sessionStorage.getItem("list")){
+//         this.setState({
+//             list:JSON.parse(sessionStorage.getItem("list"))
+//         })                 
+//     }else{
+//         this.setState({
+//             list:this.props
+//         }) 
+//         console.log(this.state.list,"componentDidMount")
+//     sessionStorage.setItem("list",JSON.stringify(this.props.list))                   
+//     }
+// } 

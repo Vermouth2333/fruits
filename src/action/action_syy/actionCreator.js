@@ -1,5 +1,5 @@
 import {createAction} from 'redux-actions'
-import {home_api,find_api} from '@api/syyapi/home'
+import {home_api,find_api,keys_api,city_api,} from '@api/syyapi/home'
 // 同步的
 export const HomeAction=createAction('HOME_ACTION',(val)=>val)
 //异步 首页
@@ -16,5 +16,22 @@ export const FindAsyncAction=(val)=>{
     return async(dispatch)=>{
         let data=await find_api(val);       
         dispatch(FindAction(data))
+    }
+}
+// 
+// ToDesAsyncAction
+export const ToDesAction=createAction('DES_ACTION',(val,value)=>({val,value}))
+export const ToDesAsyncAction=(value)=>{   
+    return async(dispatch)=>{      
+        let data=await keys_api(value,3,1,50,1);            
+        dispatch(ToDesAction(data,value))        
+    }
+}
+// 城市列表
+export const CityAction=createAction('CITY_ACTION',(val)=>val)
+export const CityAsyncAction=()=>{   
+    return async(dispatch)=>{      
+        let data=await city_api();                        
+        dispatch(CityAction(data.data.cities))        
     }
 }
