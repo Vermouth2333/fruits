@@ -5,13 +5,19 @@ import TypeList from "./reducers/typelist"
 import home from "./reducers/home"
 import search from './reducers/search'
 import xrrcity from "./reducers/xrrcity"
+import des from './reducers/des'
+import city from './reducers/city'
+import details from './reducers/details'
 const reducer = combineReducers({
     carts,
     TypeList,
     home,
-    search,
     xrrcity,
+    search,  
+    des, 
+    city,
+    details,
 })
-const store = createStore(reducer,applyMiddleware(reduxThunk));
+export const store = createStore(reducer,applyMiddleware(reduxThunk));
 
 export default store;

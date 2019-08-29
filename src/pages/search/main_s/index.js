@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { BodySWrapper } from './styled'
 import { search_api } from "../../../api/syyapi/home"
-import { connect } from "react-redux"
 import {NavLink} from "react-router-dom";
+import { connect } from "react-redux"
 import { mapStateToProps, mapDispatchToProps } from '../connect'
 class Main extends Component {
     constructor() {
@@ -12,9 +12,8 @@ class Main extends Component {
         }
     }
     render() {
-        let { arr } = this.state
+        let { arr} = this.state
         let { flag, arr_f } = this.props
-
         return (
             <BodySWrapper>
                 <div style={{ display: flag ? "block" : "none" }} className='search'>
@@ -22,7 +21,7 @@ class Main extends Component {
                     <ul>
                         {
                             arr.map((item, index) => (
-                                <li key={index} onClick={this.props.handleFind.bind(this, item)}>{item}</li>
+                                <li key={index} onClick={this.props.handleFind.bind(this,item)}>{item}</li>
                             ))
                         }
                     </ul>
@@ -32,7 +31,7 @@ class Main extends Component {
                         {
                             arr_f.map((item, index) => (
                                 <NavLink to='/des' key={index}>
-                                     <li >{item}</li>
+                                     <li onClick={this.props.handleToDes.bind(this,item)}>{item}</li>
                                 </NavLink>
                             ))
                         }

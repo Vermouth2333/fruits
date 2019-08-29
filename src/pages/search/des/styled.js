@@ -1,20 +1,17 @@
 import styled from "styled-components";
 export const ContentSWrapper = styled.div`
-position: absolute;
-top:0.88rem;
 height:100%;
 .content{
     width:100%;
     height: 100%;
-    position:absolute;  
+    position:absolute;
+    top:0.88rem;
     overflow-y:auto;
     .main{
         width:100%;
         .item {
             display: -webkit-box;
             padding: .2rem;
-            width:100%;
-            display:block;
             position: relative;
             border-bottom: .02rem solid #d8d8d8;
             color: #3a3a3a;
@@ -114,13 +111,11 @@ height:100%;
                     }
                     .icon-add_circle{
                         font-size:.5rem;
+                        color: #ff7e05;
                     }
                 }
             }
         }
     }
 }
-
-
-
  `  

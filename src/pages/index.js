@@ -47,6 +47,14 @@ const XrrCity = Loadable({
     loading:Loading
 })
 
+const City = Loadable({
+    loader:()=>import("./city"),
+    loading:Loading
+})
+const Details_s = Loadable({
+    loader:()=>import("./details_s"),
+    loading:Loading
+})
 export {
     Home,
     Search,
@@ -58,4 +66,6 @@ export {
     Des,
     Detail,
     XrrCity,
+    City,
+    Details_s,
 }

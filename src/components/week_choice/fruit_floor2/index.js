@@ -17,14 +17,14 @@ import { mapStateToProps, mapDispatchToProps } from "./connect";
        
         return (
             <BuyWriper >                                            
-            <div className='buy'><img src={list[8]?list[8].content[0].image:""}/></div>
-            <div className='buy_b'><img src={list[9]?list[9].content[0].image:""}/></div> 
+            <div className='buy'><img src={list[8]?list[8].content[0].image:""} alt=''/></div>
+            <div className='buy_b'><img src={list[9]?list[9].content[0].image:""} alt=''/></div> 
             <div className='fruit_floor2'>
             <ul>
             {   
                 list[10]?list[10].content.map((item,index)=>(                                
                 <li key={index}>
-                    <img src={item.image}/>
+                    <img src={item.image} alt=''/>
                     <p className='text'>{item.subtitle}</p>
                     <p className='price'>
                         <span>￥{item.price}/{item.volume}</span>
@@ -38,11 +38,11 @@ import { mapStateToProps, mapDispatchToProps } from "./connect";
             {
                 list[11]?list[11].content.map((item,index)=>(                                
                 <li key={index}>
-                    <img src={item.image}/>
+                    <img src={item.image} alt=''/>
                     <p className='text'>{item.subtitle}</p>
                     <p className='price'>
                         <span>￥{item.price}/{item.volume}</span>
-                        <i></i>
+                        <i className='iconfont icon-add_circle' onClick={this.props.handleToCarts.bind(this,item)}></i>
                     </p>
                 </li>
             

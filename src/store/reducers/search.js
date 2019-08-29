@@ -1,17 +1,15 @@
 // FIND_ACTION
 import {handleActions} from "redux-actions";
-
 const defaultState = {
     list:[],
     flag:true      
 }
-
 export default handleActions({
     FIND_ACTION:(state,action)=>{
         let newState=Object.assign({},state);
         newState.list=action.payload.data; 
-        newState.flag=!newState.flag  
-        console.log(newState) 
+        newState.flag=!newState.flag ;        
         return newState
     }
 },defaultState)
+

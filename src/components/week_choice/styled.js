@@ -97,15 +97,18 @@ export const WeekWrapper = styled.div`
                 .price{
                     text-align: center;
                     span{
-                        display: block;
-                        color: #ff8000;
-                        width: 100%;
+                        display: inline-block;
+                        color: #ff8000;                        
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis; 
                         margin-top: .04rem;
                         font-size: .24rem;         
-                    }                   
+                    }  
+                    i{
+                        font-size: .4rem;
+                        color: #ff8000;
+                    }                 
                 }
             }
         }

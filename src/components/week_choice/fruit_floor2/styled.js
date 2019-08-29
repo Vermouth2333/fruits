@@ -50,6 +50,9 @@ export const BuyWriper = styled.div`
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                i{
+                    font-size:.4rem
+                }
             }
         }
     }
