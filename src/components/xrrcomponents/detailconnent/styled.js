@@ -7,7 +7,7 @@ background:#fff;
     height: 100%;
     width:100%;
     position:absolute;
-    top:.9rem;
+    padding-top:.9rem;
     padding-bottom:.9rem;
     overflow-y:auto;
 .main{
@@ -35,6 +35,10 @@ width:100%;
       -ms-flex-align: center;
       -webkit-align-items: center;
       align-items: center;
+      img{
+          width:100%;
+          height: 100%;
+      }
     }
 
 

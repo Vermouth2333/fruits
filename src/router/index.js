@@ -8,8 +8,10 @@ import {
     List,
     Des,
     Detail,
+    XrrCity,
     City,
     Details_s,
+    AddAddress,
 } from "@pages"
 
 export  const tabBarRoute=[
@@ -22,7 +24,6 @@ export  const tabBarRoute=[
         name:'首页',
         icon:"\ue502",
     },
-   
     {
         path:'/type',
         component:Type,
@@ -31,9 +32,7 @@ export  const tabBarRoute=[
         },
         name:'分类',
         icon:"\ue513"
-              
     },
-    
     {
         path:'/carts',
         component:Carts,
@@ -41,25 +40,21 @@ export  const tabBarRoute=[
             flag:true,
         },
         name:'购物车',
-        icon:"\ue619",       
+        icon:"\ue619",
     },
-
     {
         path:'/mine',
         component:Mine,
         meta:{
             flag:true,
-            auth:true,
+            auth:false,
         },
         name:'我的',
-        icon:"\ue538",       
+        icon:"\ue538",
     },
-   
-    
 ]
 export const noTabBarRoute=[
     {
-        
         path:'/login',
         component:Login,
         meta:{
@@ -74,34 +69,40 @@ export const noTabBarRoute=[
             flag:false,
         },
         name:'搜索',
-          
     },
     {
         path:'/list',
         component:List,
         meta:{
             flag:false,
-            
         },
         name:'列表',
-             
     },
     {
         path:'/des',
         component:Des,
         meta:{
-            flag:false,        
+            flag:false,
         },
-        name:'列表',             
+        name:'列表',
     },
     {
         path:'/detail',
         component:Detail,
         meta:{
-            flag:false,        
+            flag:false,
         },
-        name:'详情',             
+        name:'详情',
     },
+    {
+        path:'/xrrcity',
+        component:XrrCity,
+        meta:{
+            flag:false,
+        },
+        name:'详情',
+    },
+
     {
         path:'/city',
         component:City,
@@ -117,6 +118,14 @@ export const noTabBarRoute=[
             flag:false,        
         },
         name:'详情页盛',             
+    },
+    {
+        path:'/addaddress',
+        component:AddAddress,
+        meta:{
+            flag:false,        
+        },
+        name:'地址添加',             
     },
 ]
 export const routerConfig=tabBarRoute.concat(noTabBarRoute)

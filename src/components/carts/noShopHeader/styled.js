@@ -8,6 +8,7 @@ export const HeaderWrapper = styled.div`
     top: 0;
     width:100%;
     border-bottom:.01rem solid #a0a0a0;
+    background-color:#fff;
     h2{
         color:#75a739;
         text-align:center;

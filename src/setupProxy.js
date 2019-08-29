@@ -16,7 +16,7 @@ module.exports = (app)=>{
     app.use(proxy("/comment",{
         target:"https://wap.fruitday.com//v3",
         changeOrigin:true,
+
     }))
+
 }
-// https://wap.fruitday.com//v3/product/
-// 评论https://wap.fruitday.com//v3/comment/rate_and_comment?product_id=22815

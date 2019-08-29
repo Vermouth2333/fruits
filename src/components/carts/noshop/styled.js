@@ -3,6 +3,8 @@ import styled from "styled-components"
 export const NoShopCenterWrapper = styled.div`
     width:100%;
     padding:2.12rem 1.52rem 0;
+    background-color:#fff;
+    height:100%;
     img{
         width:4.5rem;
         height:3rem;

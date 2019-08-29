@@ -3,103 +3,121 @@ import { DetailWrapper } from "./styled"
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.css'
 import "../iconfont/iconfont.css"
-import BScrollComponent from "@common/bscroll";
 
-export default class DetailConnent extends Component {
+import { detail_types, detail_talks } from "@api/xrrapi"
+import { withRouter } from "react-router-dom";
+import store from "@store"
+import {sendFlagAsyncToDetail } from "@actions/xrractions/actionCreator.js"
+
+const url = require("url");
+
+class DetailConnent extends Component {
+    constructor(props) {
+        super(props);
+        let path = this.props.location.search;
+        let { product_id } = url.parse(path, true).query;
+        this.state = {
+            product_id: product_id,
+            templatePhoto: [],
+            productInfo: [],
+            sendTimeMsg: "",
+            productItem: [],
+            num: [],
+            good: "",
+            total: [],
+            eat: "",
+            show: ''
+        }
+    }
     render() {
+        let { templatePhoto, productInfo, sendTimeMsg,
+            productItem, num, good, total, eat, show } = this.state
         return (
             <DetailWrapper>
-                <BScrollComponent>
-                    <div className="connect">
-                        <div className="main">
-                            <div className="swiper-container">
-                                <div className="swiper-wrapper">
-                                    <div className="swiper-slide">Slide 1</div>
-                                    <div className="swiper-slide">Slide 2</div>
-                                    <div className="swiper-slide">Slide 3</div>
-                                    <div className="swiper-slide">Slide 4</div>
-                                    <div className="swiper-slide">Slide 5</div>
-                                    <div className="swiper-slide">Slide 6</div>
-                                    <div className="swiper-slide">Slide 7</div>
-                                    <div className="swiper-slide">Slide 8</div>
-                                    <div className="swiper-slide">Slide 9</div>
-                                    <div className="swiper-slide">Slide 10</div>
-                                </div>
-
-                                <div className="swiper-pagination"></div>
+                <div className="connect">
+                    <div className="main">
+                        <div className="swiper-container">
+                            <div className="swiper-wrapper">
+                                {
+                                    templatePhoto.map((item, index) => (
+                                        <div className="swiper-slide" key={index}><img src={item.image} /></div>
+                                    ))
+                                }
                             </div>
 
-                            <div className="info-item">
-                                <h3>优选佳沛新西兰阳光金奇异果(原箱)2181213102(33486)  </h3>
-                                <h4>丰富vc营养 唤醒每日活力 </h4>
-                                <div className="price">
-                                    <small>￥</small>
-                                    <em>219</em>
-                                </div>
-                                <div className="size">
-                                    <span className="cur">
-                                        <strong>30个/单个7.3元</strong>
-                                        <small>  明日达  </small>
-                                    </span>
-                                    <em>最快明天08:00-18:00送达</em>
-                                </div>
+                            <div className="swiper-pagination"></div>
+                        </div>
+
+                        <div className="info-item">
+                            <h3>{productInfo.product_name}  </h3>
+                            <h4>{productInfo.product_desc} </h4>
+                            <div className="price">
+                                <small>￥</small>
+                                <em>{productInfo.price}</em>
                             </div>
-
-
-
-                            <div className="address-item">
-                                <span className="title">送至</span>
-                                <h4>
-                                    <i className="iconfont icon-dibiao"></i>
-                                    沙河镇 </h4>
-                            </div>
-
-
-                            <div className="tips-item">
-                                <span>
-                                    <i className="iconfont icon-duihao"></i>
-                                    48小时退换货</span>
-                                <span>
-                                    <i className="iconfont icon-duihao"></i>
-                                    全程冷链</span>
-                                <span>
-                                    <i className="iconfont icon-duihao"></i>
-                                    果园标准</span>
-                                <span><i className="iconfont icon-duihao"></i>
-                                    全球直采</span>
-                            </div>
-
-                            <div className="comment-item" id="first-comment">
-
-                                <div className="comment-total">
-                                    <span className="pull-right">
-                                        <small className="orange">99%</small>好评
-                            <i className="iconfont icon-youjiantou"></i>
-                                    </span>评价(111)
-                            </div>
-
-                                <div className="comment-con-chief">
-
-                                    <div className="comment-info">
-                                        <img className="avatar" src="https://imgqn4.fruitday.com/up_images/default_userpic.png" alt="" />
-                                        <span className="user">137********</span>
-                                        <i className="iconfont icon-v_mini6"></i>
-                                        <span className="date">2019-08-22</span>
-                                    </div>
-                                    <div className="comment-level">
-                                        <span>口感 5</span>
-                                        <span>颜值 5</span>
-                                    </div>
-                                    <div className="comment-msg">这款猕猴桃很不错，送给家人，都说好。</div>
-                                </div>
-                                <div className="text-center">
-                                    <span className="comment-view">查看全部评论</span>
-                                </div>
-
+                            <div className="size">
+                                <span className="cur">
+                                    <strong>{productItem.volume}</strong>
+                                    <small>  明日达  </small>
+                                </span>
+                                <em>{sendTimeMsg}</em>
                             </div>
                         </div>
+
+
+
+                        <div className="address-item">
+                            <span className="title">送至</span>
+                            <h4>
+                                <i className="iconfont icon-dibiao"></i>
+                                沙河镇 </h4>
+                        </div>
+
+
+                        <div className="tips-item">
+                            <span>
+                                <i className="iconfont icon-duihao"></i>
+                                48小时退换货</span>
+                            <span>
+                                <i className="iconfont icon-duihao"></i>
+                                全程冷链</span>
+                            <span>
+                                <i className="iconfont icon-duihao"></i>
+                                果园标准</span>
+                            <span><i className="iconfont icon-duihao"></i>
+                                全球直采</span>
+                        </div>
+
+                        <div className="comment-item" id="first-comment">
+
+                            <div className="comment-total">
+                                <span className="pull-right">
+                                    <small className="orange">{good}%</small>好评
+                            <i className="iconfont icon-youjiantou"></i>
+                                </span>评价({num.total})
+                            </div>
+
+                            <div className="comment-con-chief">
+
+                                <div className="comment-info">
+                                    <img className="avatar" src={total.userface} alt="" />
+                                    <span className="user">{total.user_name}</span>
+                                    <i className="iconfont icon-v_mini6"></i>
+                                    <span className="date">{total.time}</span>
+                                </div>
+                                <div className="comment-level">
+                                    <span>口感 {eat}</span>
+                                    <span>颜值 {show}</span>
+                                </div>
+                                <div className="comment-msg">{total.content}</div>
+                            </div>
+                            <div className="text-center">
+                                <span className="comment-view" onClick={this.handleSeeTogal.bind(this)}>查看全部评论</span>
+                            </div>
+
+                        </div>
                     </div>
-                </BScrollComponent>
+                </div>
             </DetailWrapper>
         )
     }
@@ -115,6 +133,39 @@ export default class DetailConnent extends Component {
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            initialSlide: 0,
+            observer: true,//修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true//修改swiper的父元素时，自动初始化swiper
         });
+
+        this.handleGetText();
+
     }
+    componentWillUnmount() {
+        // 卸载异步操作设置状态
+        this.setState = (state, callback) => {
+            return;
+        }
+    }
+
+    async handleGetText() {
+        let data = await detail_types(3, this.state.product_id, "", 3, 1)
+        let data1 = await detail_talks(this.state.product_id)
+        this.setState({
+            templatePhoto: data.data.templatePhoto,
+            productInfo: data.data.productInfo,
+            sendTimeMsg: data.data.sendTimeMsg,
+            productItem: data.data.productItem[0],
+            num: data1.data.num,
+            good: data1.data.good,
+            total: data1.data.data[0],
+            eat: data1.data.eat,
+            show: data1.data.show
+        })
+    }
+    handleSeeTogal(){
+        let obj={flag1:false,flag2:false,flag3:true}
+        store.dispatch(sendFlagAsyncToDetail(obj))
 }
+}
+export default withRouter(DetailConnent)

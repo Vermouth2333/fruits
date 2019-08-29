@@ -24,7 +24,7 @@ class List extends Component {
                                     <p>
                                         <span>{item.weight}</span>
                                     </p>
-                                    <div className="bottom">
+                                    <div className="bottom_box">
                                         <div className="show_price">
                                             <span>￥</span>
                                             <span>{item.price}</span>
@@ -41,7 +41,9 @@ class List extends Component {
                         </div>
                     </ListWrapper>
                 ))
+                
             }
+            <div className="list_bottom_heihgt" style={{height:"1rem"}}></div>
             </Fragment>
         )
     }

@@ -12,7 +12,7 @@ background:#fff;
     bottom:1rem;
     background: #f5f5f5;
     .leftlink_child{
-        height: .96rem;
+        height: .9rem;
         width: 1.6rem;
         line-height: .96rem;
         font-size: .3rem;

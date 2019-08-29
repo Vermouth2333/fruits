@@ -39,6 +39,8 @@ export const HeaderWrapper = styled.div`
         font-weight: 300;
     }
     span{
+        line-height:.88rem;
+        height:100%;
         font-size:.28rem;
         padding-right:.16rem;
         color: #76a741;
