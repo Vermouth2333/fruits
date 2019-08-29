@@ -1,13 +1,16 @@
 import {handleActions} from "redux-actions";
 
 const defaultState = {
-
+    data:[]
 }
 
 export default handleActions({
-    GOODS_TYPES:(state,action)=>{
+    CITY_DATA:(state,action)=>{
         let goodsState = Object.assign({},state);
-        goodsState.goodsType = action.payload.data;
+        goodsState.data = action.payload.data;
+        console.log(goodsState.data)
+        
+
         return goodsState;
     },
 

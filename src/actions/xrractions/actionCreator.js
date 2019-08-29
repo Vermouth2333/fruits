@@ -43,7 +43,6 @@ export const cityData = createAction("CITY_DATA",(val)=>val);
 export const cityAsyncData = ()=>{
     return async (dispatch)=>{
         let data=await city_list();
-        console.log(data)
         dispatch(cityData(data))
     }
 }
