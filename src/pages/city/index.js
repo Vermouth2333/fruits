@@ -16,7 +16,7 @@ class City extends Component {
                         {
                             cityHot.map((item, index) => (
                                 <div className="hot_city_name" key={index}>
-                                    {item.nm}北京
+                                    {item.nm}
                                     </div>
                             ))
                         }
