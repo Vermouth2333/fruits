@@ -16,8 +16,8 @@ class HeaderList extends Component {
         let path = this.props.location.search;
         let { class2_id, class3_id } = url.parse(path, true).query;
         this.state = {
-            class2_id: '',
-            class3_id: "",
+            class2_id:class2_id,
+            class3_id:class3_id,
             brotherClass: [],
             productGroup: [],
             fatherClass: [],
@@ -27,8 +27,6 @@ class HeaderList extends Component {
             navid:class3_id,
             greennum:1
         }
-        this.state.class2_id = class2_id;
-        this.state.class3_id = class3_id;
     }
     render() {
         let { brotherClass, productGroup, fatherClass, activeindex, status } = this.state;

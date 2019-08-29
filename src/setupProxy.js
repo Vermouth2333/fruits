@@ -5,5 +5,15 @@ module.exports = (app)=>{
         target:"https://wap.fruitday.com",
         changeOrigin:true,
     }))
-   
+    app.use(proxy("/product",{
+        target:"https://wap.fruitday.com//v3",
+        changeOrigin:true,
+
+    }))
+    app.use(proxy("/comment",{
+        target:"https://wap.fruitday.com//v3",
+        changeOrigin:true,
+
+    }))
+    
 }

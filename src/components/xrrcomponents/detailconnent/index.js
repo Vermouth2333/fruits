@@ -5,8 +5,34 @@ import 'swiper/dist/css/swiper.css'
 import "../iconfont/iconfont.css"
 import BScrollComponent from "@common/bscroll";
 
-export default class DetailConnent extends Component {
+import { detail_types, detail_talks } from "@api/xrrapi"
+import { withRouter } from "react-router-dom";
+
+const url = require("url");
+
+class DetailConnent extends Component {
+    constructor(props) {
+        super(props);
+        let path = this.props.location.search;
+        let { product_id } = url.parse(path, true).query;
+        this.state = {
+            product_id: product_id,
+            templatePhoto: [],
+            productInfo:[],
+            sendTimeMsg:"",
+            productItem:[],
+            num:[],
+            good:"",
+            total:[],
+            eat:"",
+            show:''
+        }
+        console.log(product_id)
+    }
     render() {
+        let { templatePhoto ,productInfo,sendTimeMsg,
+            productItem,num,good,total,eat,show} = this.state
+        console.log(productItem)
         return (
             <DetailWrapper>
                 <BScrollComponent>
@@ -14,34 +40,29 @@ export default class DetailConnent extends Component {
                         <div className="main">
                             <div className="swiper-container">
                                 <div className="swiper-wrapper">
-                                    <div className="swiper-slide">Slide 1</div>
-                                    <div className="swiper-slide">Slide 2</div>
-                                    <div className="swiper-slide">Slide 3</div>
-                                    <div className="swiper-slide">Slide 4</div>
-                                    <div className="swiper-slide">Slide 5</div>
-                                    <div className="swiper-slide">Slide 6</div>
-                                    <div className="swiper-slide">Slide 7</div>
-                                    <div className="swiper-slide">Slide 8</div>
-                                    <div className="swiper-slide">Slide 9</div>
-                                    <div className="swiper-slide">Slide 10</div>
+                                    {
+                                        templatePhoto.map((item, index) => (
+                                            <div className="swiper-slide" key={index}><img src={item.image}/></div>
+                                        ))
+                                    }
                                 </div>
 
                                 <div className="swiper-pagination"></div>
                             </div>
 
                             <div className="info-item">
-                                <h3>优选佳沛新西兰阳光金奇异果(原箱)2181213102(33486)  </h3>
-                                <h4>丰富vc营养 唤醒每日活力 </h4>
+                                <h3>{productInfo.product_name}  </h3>
+                                <h4>{productInfo.product_desc} </h4>
                                 <div className="price">
                                     <small>￥</small>
-                                    <em>219</em>
+                                    <em>{productInfo.price}</em>
                                 </div>
                                 <div className="size">
                                     <span className="cur">
-                                        <strong>30个/单个7.3元</strong>
+                                        <strong>{productItem.volume}</strong>
                                         <small>  明日达  </small>
                                     </span>
-                                    <em>最快明天08:00-18:00送达</em>
+                                    <em>{sendTimeMsg}</em>
                                 </div>
                             </div>
 
@@ -73,24 +94,24 @@ export default class DetailConnent extends Component {
 
                                 <div className="comment-total">
                                     <span className="pull-right">
-                                        <small className="orange">99%</small>好评
+                                        <small className="orange">{good}%</small>好评
                             <i className="iconfont icon-youjiantou"></i>
-                                    </span>评价(111)
+                                    </span>评价({num.total})
                             </div>
 
                                 <div className="comment-con-chief">
 
                                     <div className="comment-info">
-                                        <img className="avatar" src="https://imgqn4.fruitday.com/up_images/default_userpic.png" alt="" />
-                                        <span className="user">137********</span>
+                                        <img className="avatar" src={total.userface} alt="" />
+                                        <span className="user">{total.user_name}</span>
                                         <i className="iconfont icon-v_mini6"></i>
-                                        <span className="date">2019-08-22</span>
+                                        <span className="date">{total.time}</span>
                                     </div>
                                     <div className="comment-level">
-                                        <span>口感 5</span>
-                                        <span>颜值 5</span>
+                                        <span>口感 {eat}</span>
+                                        <span>颜值 {show}</span>
                                     </div>
-                                    <div className="comment-msg">这款猕猴桃很不错，送给家人，都说好。</div>
+                                    <div className="comment-msg">{total.content}</div>
                                 </div>
                                 <div className="text-center">
                                     <span className="comment-view">查看全部评论</span>
@@ -115,6 +136,29 @@ export default class DetailConnent extends Component {
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            initialSlide: 0,
+            observer: true,//修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true//修改swiper的父元素时，自动初始化swiper
         });
+
+        this.handleGetText();
+
+    }
+    async handleGetText() {
+        let data = await detail_types(3, this.state.product_id, "", 3, 1)
+        let data1=await detail_talks(this.state.product_id)
+        console.log(data1)
+        this.setState({
+            templatePhoto: data.data.templatePhoto,
+            productInfo:data.data.productInfo,
+            sendTimeMsg:data.data.sendTimeMsg,
+            productItem:data.data.productItem[0],
+            num:data1.data.num,
+            good:data1.data.good,
+            total:data1.data.data[0],
+            eat:data1.data.eat,
+            show:data1.data.show
+        })
     }
 }
+export default withRouter(DetailConnent)

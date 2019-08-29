@@ -10,7 +10,7 @@ class Kinds extends Component {
         super();
         this.state = {
             kindslist: [],
-            activeindex: '',
+            activeindex: 0,
             fruitslist: [],
             class2Nam: {},
             store_id_list:"3",

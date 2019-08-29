@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { DetailsWrapper } from "./styled"
 import "../iconfont/iconfont.css"
-export default class HeaderDetail extends Component {
+import { withRouter } from "react-router-dom";
+import store from "@store"
+import {sendFlagAsyncToDetail } from "@actions/xrractions/actionCreator.js"
+
+class HeaderDetail extends Component {
     constructor() {
         super();
         this.state = {
@@ -15,7 +19,7 @@ export default class HeaderDetail extends Component {
             <DetailsWrapper>
                 <nav>
                     <div className="back">
-                        <p href="" className="iconfont icon-zuojiantou"></p>
+                        <p className="iconfont icon-zuojiantou" onClick={this.handleback.bind(this)}></p>
                     </div>
                     <div className="tab">
                         <ul className="tab-menu">
@@ -54,18 +58,30 @@ export default class HeaderDetail extends Component {
                 this.setState({
                     activestatus: status
                 })
+                let obj={flag1:true,flag2:false,flag3:false}
+                store.dispatch(sendFlagAsyncToDetail(obj))
                 break;
             case 2:
                 this.setState({
                     activestatus: status
                 })
+                let obj1={flag1:false,flag2:true,flag3:false}
+                store.dispatch(sendFlagAsyncToDetail(obj1))
+
                 break;
             case 3:
                 this.setState({
                     activestatus: status
                 })
+                let obj2={flag1:false,flag2:false,flag3:true}
+                store.dispatch(sendFlagAsyncToDetail(obj2))
+
                 break;
 
         }
     }
+    handleback(){
+        this.props.history.goBack();
+    }
 }
+export default withRouter(HeaderDetail)
