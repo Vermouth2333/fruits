@@ -8,7 +8,7 @@ class City extends Component {
     render() {
         let { cityHot, cityList } = this.props
         console.log(cityHot)
-        return (
+        return(
             <BScrollComponent ref="bscroll">
                 <div className="hot_city">
                     <div className="hot_title">热门城市</div>

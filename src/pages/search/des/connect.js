@@ -1,4 +1,5 @@
 import {sendAsyncDataToCarts} from '../../../actions/xrractions/actionCreator'
+import {DetailsAsyncAction,DetailsAction} from '../../../action/action_syy/actionCreator'
 export const mapStateToProps = (state)=>({      
         list:state.des.list
 })
@@ -17,5 +18,8 @@ export const mapDispatchToProps = (dispatch)=>({
                 obj.weight=item.volume;     
                 console.log(item)
                 dispatch(sendAsyncDataToCarts(obj))
+            },
+            handleToDetails(id){
+                dispatch(DetailsAsyncAction(id))
             }
 })

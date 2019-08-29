@@ -9,7 +9,6 @@ export default handleActions({
     GOODS_CARTS:(state,action)=>{
         let goodsState = JSON.parse(JSON.stringify(state));
         goodsState.cartsGoods.push(action.payload);
-        console.log(goodsState.cartsGoods);
         return goodsState;
     },
     ADD_NUMBER:(state,action)=>{

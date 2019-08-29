@@ -6,14 +6,14 @@ import { mapStateToProps, mapDispatchToProps } from "./connect";
 import { connect } from "react-redux";
  class Banner extends Component {
   render() {   
-    let {list}=this.props 
+    let {list}=this.props    
     return (    
         <Carousel autoplay >
         {
           list[0]?list[0].content.map((item,index)=>(
             <div key={index} >
             <h3>
-             <img src={item.image} alt="" style={{width:"100%",height:"100%"}}/>
+             <img className='image' src={item.image} alt="" style={{width:"100%",height:"100%"}}/>
             </h3>
           </div>
           )):''

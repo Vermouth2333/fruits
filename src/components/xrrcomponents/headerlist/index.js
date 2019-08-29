@@ -6,7 +6,7 @@ import 'swiper/dist/css/swiper.css'
 import { list_kinds_types } from "@api/xrrapi"
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { sendAsyncDataToCarts } from "@actions/xrractions/actionCreator.js"
+import { sendAsyncDataToCarts,sendGreenAsyncToCarts } from "@actions/xrractions/actionCreator.js"
 import store from "@store"
 const url = require("url");
 
@@ -24,7 +24,8 @@ class HeaderList extends Component {
             activeindex: "0",
             status: 1,
             num: 0,
-            navid:class3_id
+            navid:class3_id,
+            greennum:1
         }
         this.state.class2_id = class2_id;
         this.state.class3_id = class3_id;
@@ -68,7 +69,7 @@ class HeaderList extends Component {
                     <div className="main">
                         {
                             productGroup.map((item, index) => (
-                                <Link className="item" key={index} to="">
+                                <Link className="item" key={index} to={"/detail?product_id="+item.id}>
                                     <img className="good-img" src={item.photo} alt="" />
                                     <dl className="">
                                         <dt>{item.product_name}</dt>
@@ -106,7 +107,6 @@ class HeaderList extends Component {
             observeParents: true//修改swiper的父元素时，自动初始化swiper
         });
         this.handleGetListdata();
-        this.handleNavIdData();
     }
     async handleGetListdata(){
         let data = await list_kinds_types(3,30,this.state.class3_id,1,1);
@@ -128,6 +128,9 @@ class HeaderList extends Component {
         obj.price = item.price;
         obj.weight = item.volume
         store.dispatch(sendAsyncDataToCarts(obj))
+
+        let greennum=this.state.greennum++;
+        store.dispatch(sendGreenAsyncToCarts(greennum))
     }
     async handleNavList(index, id) {
         this.setState({
@@ -141,11 +144,6 @@ class HeaderList extends Component {
         })
     }
 
-    handleNavIdData() {
-        if (this.state.class3_id == this.state.navid) {
-            this.state.style="transform: translate3d(-585px, 0px, 0px)"
-        }
-    }
     async handleSort(type) {
         let num1 = this.state.num++;
         console.log(num1, 222);

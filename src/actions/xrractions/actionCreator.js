@@ -16,3 +16,13 @@ export const sendAsyncDataToCarts = (val)=>{
         dispatch(sendDataToCarts(val))
     }
 }
+
+
+
+
+export const sendGreenToCarts = createAction("GREEN_CARTS",(val)=>val);
+export const sendGreenAsyncToCarts = (val)=>{
+    return (dispatch)=>{
+        dispatch(sendGreenToCarts(val))
+    }
+}

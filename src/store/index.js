@@ -6,13 +6,15 @@ import home from "./reducers/home"
 import search from './reducers/search'
 import des from './reducers/des'
 import city from './reducers/city'
+import details from './reducers/details'
 const reducer = combineReducers({
     carts,
     TypeList,
     home,
     search,  
     des, 
-    city
+    city,
+    details,
 })
 export const store = createStore(reducer,applyMiddleware(reduxThunk));
 

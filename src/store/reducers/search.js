@@ -8,9 +8,8 @@ export default handleActions({
     FIND_ACTION:(state,action)=>{
         let newState=Object.assign({},state);
         newState.list=action.payload.data; 
-        newState.flag=!newState.flag  
+        newState.flag=!newState.flag ;        
         return newState
     }
-
 },defaultState)
 

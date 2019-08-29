@@ -9,6 +9,7 @@ import {
     Des,
     Detail,
     City,
+    Details_s,
 } from "@pages"
 
 export  const tabBarRoute=[
@@ -108,6 +109,14 @@ export const noTabBarRoute=[
             flag:false,        
         },
         name:'城市列表',             
+    },
+    {
+        path:'/details',
+        component:Details_s,
+        meta:{
+            flag:false,        
+        },
+        name:'详情页盛',             
     },
 ]
 export const routerConfig=tabBarRoute.concat(noTabBarRoute)

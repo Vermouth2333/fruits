@@ -75,7 +75,6 @@ a {
     line-height: .36rem;
     background: #fff;
 .swiper-wrapper{
-    transform: translate3d(30px, 0px, 0px);
 .swiper-slide {
   text-align: center;
   font-size: .3rem;
