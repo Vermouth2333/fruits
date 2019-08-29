@@ -17,9 +17,9 @@ module.exports = override(
         ["@lib"]:path.resolve(__dirname,"./src/lib"),
     },
     fixBabelImports('import', {
-             libraryName: 'antd',
+            libraryName: 'antd',
             libraryDirectory: 'es',
-             style: 'css',
+            style: 'css',
            }),
     )
 );

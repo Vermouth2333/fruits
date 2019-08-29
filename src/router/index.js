@@ -11,6 +11,7 @@ import {
     XrrCity,
     City,
     Details_s,
+    AddAddress,
 } from "@pages"
 
 export  const tabBarRoute=[
@@ -46,7 +47,7 @@ export  const tabBarRoute=[
         component:Mine,
         meta:{
             flag:true,
-            auth:true,
+            auth:false,
         },
         name:'我的',
         icon:"\ue538",
@@ -117,6 +118,14 @@ export const noTabBarRoute=[
             flag:false,        
         },
         name:'详情页盛',             
+    },
+    {
+        path:'/addaddress',
+        component:AddAddress,
+        meta:{
+            flag:false,        
+        },
+        name:'地址添加',             
     },
 ]
 export const routerConfig=tabBarRoute.concat(noTabBarRoute)

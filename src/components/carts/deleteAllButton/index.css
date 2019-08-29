@@ -1,0 +1,48 @@
+#delete_all_button .am-button{
+    height: 100%;
+    width:100%;
+    background: rgb(255, 72, 72);
+}
+html:not([data-scale]) .am-button::before{
+    border:0px;
+}
+#delete_all_button .am-button>span{
+    font-size: .24rem;
+    line-height: 1rem;
+    color: #878787;
+}
+#delete_all_button .am-modal-body {
+    font-size: .3rem;
+}
+#delete_all_button .am-modal-button-group-h .am-modal-button {
+    -webkit-touch-callout: none;
+    flex: 1 1;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    font-size: .36rem;
+    line-height: 1rem;
+    display: block;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 1rem;
+}
+
+#delete_all_button .am-modal-transparent {
+    width: 5.4rem;
+}
+#delete_all_button .am-modal-transparent .am-modal-content .am-modal-body {
+    padding: .6rem .3rem .6rem;
+}
+#delete_all_button .am-wingblank.am-wingblank-lg {
+     margin-left: 0px; 
+     margin-right: 0px; 
+}
+
+#delete_all_button .am-wingblank {
+     margin-left: 0px; 
+     margin-right: 0px; 
+}

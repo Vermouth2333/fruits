@@ -1,6 +1,8 @@
 import styled from "styled-components"
-
 export const ListWrapper = styled.div`
+body{
+    line-height:0 !important;
+}
     background-color:#fff;
     height:2.2rem;
     padding:.2rem;
@@ -29,15 +31,17 @@ export const ListWrapper = styled.div`
                 font-size: .28rem;
                 font-weight: 400;
                 color: #3a3a3a;
+                margin-bottom:0rem;
             }
             .price{
                 p{
+                    margin-bottom:0rem;
                     span{
                         font-size:.2rem;
                         padding-right:.3rem;
                     }
                 }
-                .bottom{
+                .bottom_box{
                     display:flex;
                     justify-content:space-between;
                     .show_price{

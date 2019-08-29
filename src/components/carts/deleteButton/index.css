@@ -1,0 +1,39 @@
+.am-button{
+    height: 100%;
+    width:100%;
+    background: rgb(255, 72, 72);
+}
+html:not([data-scale]) .am-button::before{
+    border:0px;
+}
+.am-button>span{
+    font-size: .32rem;
+    line-height: 1rem;
+    color: #fff;
+}
+.am-modal-body {
+    font-size: .3rem;
+}
+.am-modal-button-group-h .am-modal-button {
+    -webkit-touch-callout: none;
+    flex: 1 1;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    font-size: .36rem;
+    line-height: 1rem;
+    display: block;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 1rem;
+}
+
+.am-modal-transparent {
+    width: 5.4rem;
+}
+.am-modal-transparent .am-modal-content .am-modal-body {
+    padding: .6rem .3rem .6rem;
+}
