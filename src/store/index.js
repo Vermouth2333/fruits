@@ -4,11 +4,13 @@ import carts from "./reducers/carts"//购物车商品数据池
 import TypeList from "./reducers/typelist"
 import home from "./reducers/home"
 import search from './reducers/search'
+import xrrcity from "./reducers/xrrcity"
 const reducer = combineReducers({
     carts,
     TypeList,
     home,
     search,
+    xrrcity,
 })
 const store = createStore(reducer,applyMiddleware(reduxThunk));
 

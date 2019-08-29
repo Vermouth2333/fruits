@@ -3,7 +3,8 @@ import {handleActions} from "redux-actions";
 const defaultState = {
     goodsType:[],
     greennum:"0",
-    flaglist:[]
+    flaglist:[],
+    flag:true,
 }
 
 export default handleActions({
@@ -21,7 +22,7 @@ export default handleActions({
     SEND_FLAG:(state,action)=>{
         let flagState = Object.assign({},state);
         flagState.flaglist = action.payload;
-
+        flagState.flag=""
         return flagState;
     },
 

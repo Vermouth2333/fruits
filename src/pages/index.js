@@ -42,6 +42,11 @@ const Detail = Loadable({
     loader:()=>import("./detail"),
     loading:Loading
 })
+const XrrCity = Loadable({
+    loader:()=>import("./xrrcity"),
+    loading:Loading
+})
+
 export {
     Home,
     Search,
@@ -52,4 +57,5 @@ export {
     List,
     Des,
     Detail,
+    XrrCity,
 }

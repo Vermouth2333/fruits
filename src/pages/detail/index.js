@@ -14,12 +14,11 @@ export default class Detail extends Component {
     }
 
     render() {
-        let {flaglist} = this.state.TypeList
-        console.log(flaglist)
+        let {flaglist,flag} = this.state.TypeList
         return (
             <div>
             <HeaderDetail/>
-            {flaglist.flag1?<DetailConnent/>:""}
+            { (flag||flaglist.flag1)?<DetailConnent/>:""}
             {flaglist.flag2?<DetailTwo/>:""}
             {flaglist.flag3?<DetailTagol/>:""}
 

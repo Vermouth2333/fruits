@@ -6,7 +6,7 @@ import 'swiper/dist/css/swiper.css'
 import { list_kinds_types } from "@api/xrrapi"
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { sendAsyncDataToCarts,sendGreenAsyncToCarts } from "@actions/xrractions/actionCreator.js"
+import { sendAsyncDataToCarts, sendGreenAsyncToCarts } from "@actions/xrractions/actionCreator.js"
 import store from "@store"
 const url = require("url");
 
@@ -16,16 +16,16 @@ class HeaderList extends Component {
         let path = this.props.location.search;
         let { class2_id, class3_id } = url.parse(path, true).query;
         this.state = {
-            class2_id:class2_id,
-            class3_id:class3_id,
+            class2_id: class2_id,
+            class3_id: class3_id,
             brotherClass: [],
             productGroup: [],
             fatherClass: [],
             activeindex: "0",
             status: 1,
             num: 0,
-            navid:class3_id,
-            greennum:1
+            navid: class3_id,
+            greennum: 1
         }
     }
     render() {
@@ -67,7 +67,7 @@ class HeaderList extends Component {
                     <div className="main">
                         {
                             productGroup.map((item, index) => (
-                                <Link className="item" key={index} to={"/detail?product_id="+item.id}>
+                                <Link className="item" key={index} to={"/detail?product_id=" + item.id}>
                                     <img className="good-img" src={item.photo} alt="" />
                                     <dl className="">
                                         <dt>{item.product_name}</dt>
@@ -106,8 +106,15 @@ class HeaderList extends Component {
         });
         this.handleGetListdata();
     }
-    async handleGetListdata(){
-        let data = await list_kinds_types(3,30,this.state.class3_id,1,1);
+    componentWillUnmount() {
+        // 卸载异步操作设置状态
+        this.setState = (state, callback) => {
+            return;
+        }
+    }
+
+    async handleGetListdata() {
+        let data = await list_kinds_types(3, 30, this.state.class3_id, 1, 1);
         this.setState({
             brotherClass: data.data.brotherClass,
             productGroup: data.data.productGroup,
@@ -127,7 +134,7 @@ class HeaderList extends Component {
         obj.weight = item.volume
         store.dispatch(sendAsyncDataToCarts(obj))
 
-        let greennum=this.state.greennum++;
+        let greennum = this.state.greennum++;
         store.dispatch(sendGreenAsyncToCarts(greennum))
     }
     async handleNavList(index, id) {
@@ -138,7 +145,7 @@ class HeaderList extends Component {
         this.setState({
             productGroup: data.data.productGroup,
             fatherClass: data.data.fatherClass,
-            navid:id
+            navid: id
         })
     }
 

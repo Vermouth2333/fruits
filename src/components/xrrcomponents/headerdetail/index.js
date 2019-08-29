@@ -3,7 +3,7 @@ import { DetailsWrapper } from "./styled"
 import "../iconfont/iconfont.css"
 import { withRouter } from "react-router-dom";
 import store from "@store"
-import {sendFlagAsyncToDetail } from "@actions/xrractions/actionCreator.js"
+import { sendFlagAsyncToDetail } from "@actions/xrractions/actionCreator.js"
 
 class HeaderDetail extends Component {
     constructor() {
@@ -14,7 +14,7 @@ class HeaderDetail extends Component {
         }
     }
     render() {
-        let { flag,activestatus } = this.state
+        let { flag, activestatus } = this.state
         return (
             <DetailsWrapper>
                 <nav>
@@ -23,9 +23,9 @@ class HeaderDetail extends Component {
                     </div>
                     <div className="tab">
                         <ul className="tab-menu">
-                            <li className={activestatus==1?"active":""} onClick={this.handleToggle.bind(this, 1)}>商品</li>
-                            <li className={activestatus==2?"active":""} onClick={this.handleToggle.bind(this, 2)}>详情</li>
-                            <li className={activestatus==3?"active":""} onClick={this.handleToggle.bind(this, 3)}>评价</li>
+                            <li className={activestatus == 1 ? "active" : ""} onClick={this.handleToggle.bind(this, 1)}>商品</li>
+                            <li className={activestatus == 2 ? "active" : ""} onClick={this.handleToggle.bind(this, 2)}>详情</li>
+                            <li className={activestatus == 3 ? "active" : ""} onClick={this.handleToggle.bind(this, 3)}>评价</li>
                         </ul>
                     </div>
                     <div className="more">
@@ -58,14 +58,14 @@ class HeaderDetail extends Component {
                 this.setState({
                     activestatus: status
                 })
-                let obj={flag1:true,flag2:false,flag3:false}
+                let obj = { flag1: true, flag2: false, flag3: false }
                 store.dispatch(sendFlagAsyncToDetail(obj))
                 break;
             case 2:
                 this.setState({
                     activestatus: status
                 })
-                let obj1={flag1:false,flag2:true,flag3:false}
+                let obj1 = { flag1: false, flag2: true, flag3: false }
                 store.dispatch(sendFlagAsyncToDetail(obj1))
 
                 break;
@@ -73,15 +73,17 @@ class HeaderDetail extends Component {
                 this.setState({
                     activestatus: status
                 })
-                let obj2={flag1:false,flag2:false,flag3:true}
+                let obj2 = { flag1: false, flag2: false, flag3: true }
                 store.dispatch(sendFlagAsyncToDetail(obj2))
 
                 break;
 
         }
     }
-    handleback(){
+    handleback() {
         this.props.history.goBack();
+        let obj = { flag1: true, flag2: false, flag3: false }
+        store.dispatch(sendFlagAsyncToDetail(obj))
     }
 }
 export default withRouter(HeaderDetail)
