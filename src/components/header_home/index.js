@@ -10,7 +10,7 @@ export default class Header extends Component {
             <HeaderWrapper >
                <div className="header_left">
                     <img src="https://huodongjd1.fruitday.com/sale/appxx/send_to_2.png" alt=''/> 
-                    <NavLink to='/city' onClick={this.handleToCity.bind(this)}>  <div className="text">沙河镇<i className="iconfont icon-arrowdown"></i></div></NavLink>
+                    <NavLink to='/xrrcity' onClick={this.handleToCity.bind(this)}>  <div className="text">沙河镇<i className="iconfont icon-arrowdown"></i></div></NavLink>
                 </div>
                <NavLink to="/search">
                     <div className="header_right"><i className="iconfont icon-icon-"></i></div>

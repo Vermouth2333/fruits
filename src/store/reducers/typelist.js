@@ -5,6 +5,7 @@ const defaultState = {
     greennum:"0",
     flaglist:[],
     flag:true,
+    footerlist:[]
 }
 
 export default handleActions({
@@ -25,7 +26,13 @@ export default handleActions({
         flagState.flag=""
         return flagState;
     },
-
+    DETAIL_FOOTER:(state,action)=>{
+        
+        let footerState = Object.assign({},state);
+        footerState.footerlist = action.payload;
+        return footerState;
+    },
+    
 },defaultState)
 
 

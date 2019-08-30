@@ -46,3 +46,12 @@ export const cityAsyncData = ()=>{
         dispatch(cityData(data))
     }
 }
+
+
+
+export const detailfooter = createAction("DETAIL_FOOTER",(val)=>val);
+export const detailAsyncfooter = (val)=>{
+    return async (dispatch)=>{
+        dispatch(detailfooter(val))
+    }
+}

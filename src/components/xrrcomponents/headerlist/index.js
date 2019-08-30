@@ -114,7 +114,7 @@ class HeaderList extends Component {
     }
 
     async handleGetListdata() {
-        let data = await list_kinds_types(3, 30, this.state.class3_id, 1, 1);
+        let data = await list_kinds_types(3,  this.state.class2_id, this.state.class3_id, 1, 1);
         this.setState({
             brotherClass: data.data.brotherClass,
             productGroup: data.data.productGroup,
@@ -141,7 +141,7 @@ class HeaderList extends Component {
         this.setState({
             activeindex: index
         })
-        let data = await list_kinds_types(3, 30, id, 1, 1);
+        let data = await list_kinds_types(3, this.state.class2_id, id, 1, 1);
         this.setState({
             productGroup: data.data.productGroup,
             fatherClass: data.data.fatherClass,
@@ -158,7 +158,7 @@ class HeaderList extends Component {
                 this.setState({
                     status: 1
                 })
-                let data = await list_kinds_types(3, 30, this.state.navid, 1, 1);
+                let data = await list_kinds_types(3, this.state.class2_id, this.state.navid, 1, 1);
                 this.setState({
                     productGroup: data.data.productGroup,
                     fatherClass: data.data.fatherClass
@@ -168,7 +168,7 @@ class HeaderList extends Component {
                 this.setState({
                     status: 2
                 })
-                let data1 = await list_kinds_types(3, 30, this.state.navid, 2, 1);
+                let data1 = await list_kinds_types(3, this.state.class2_id, this.state.navid, 2, 1);
                 this.setState({
                     productGroup: data1.data.productGroup,
                     fatherClass: data1.data.fatherClass
@@ -180,14 +180,14 @@ class HeaderList extends Component {
                 })
                 if (num1 % 2 == 0) {
                     console.log(num1, 111)
-                    let data2 = await list_kinds_types(3, 30, this.state.navid, 3, 1);
+                    let data2 = await list_kinds_types(3, this.state.class2_id, this.state.navid, 3, 1);
                     this.setState({
                         productGroup: data2.data.productGroup,
                         fatherClass: data2.data.fatherClass
                     })
 
                 } else {
-                    let data3 = await list_kinds_types(3, 30, this.state.navid, 4, 1);
+                    let data3 = await list_kinds_types(3, this.state.class2_id, this.state.navid, 4, 1);
                     this.setState({
                         productGroup: data3.data.productGroup,
                         fatherClass: data3.data.fatherClass
