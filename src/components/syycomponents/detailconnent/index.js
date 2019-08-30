@@ -38,7 +38,7 @@ const url =require ('url')
                                 </div>
                                 <div className="size">
                                     <span className="cur">
-                                        <strong>{data?data.productItem[1].volume:""}</strong>
+                                        <strong>{data?data.productItem[0].volume:""}</strong>
                                         <small>  明日达  </small>
                                     </span>
                                     <em>{data?data.productItem.sendTimeMsg:""}</em>
