@@ -8,6 +8,7 @@ import xrrcity from "./reducers/xrrcity"
 import des from './reducers/des'
 import city from './reducers/city'
 import details from './reducers/details'
+import address from './reducers/address'
 const reducer = combineReducers({
     carts,
     TypeList,
@@ -17,6 +18,7 @@ const reducer = combineReducers({
     des, 
     city,
     details,
+    address,
 })
 export const store = createStore(reducer,applyMiddleware(reduxThunk));
 

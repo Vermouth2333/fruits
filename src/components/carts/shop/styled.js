@@ -7,10 +7,8 @@ export const ShopCenterWrapper = styled.div`
     background-color:#f5f5f5;
     div{
     .address{
-        height:1.6rem;
         width:100%;
         .specific{
-            height:1.6rem;
             padding:.4rem 0;
             display:flex;
             align-items:center;
@@ -56,4 +54,46 @@ export const ShopCenterWrapper = styled.div`
         align-items:center;
     }
 }
+main{
+    padding-left:.2rem;
+            padding-right:.4rem;
+            p:nth-of-type(1){
+              display: flex;
+              align-items: center;
+              span:nth-of-type(1){
+                font-size: .36rem;
+                color: #4b4b4b;
+                margin-right: .2rem;
+                line-height: .44rem;
+                font-weight: 300;
+                font-family: Arial,"Microsoft Yahei",sans-serif;
+              }
+              span:nth-of-type(2){
+                font-size: .36rem;
+                color: #4b4b4b;
+                margin-right: .2rem;
+                line-height: .44rem;
+                font-weight: 300;
+                font-family: Arial,"Microsoft Yahei",sans-serif;
+              }
+              span:nth-of-type(3){
+                padding: 0 .12rem;
+                font-size: .2rem;
+                color: #ff7e05;
+                border: .02rem solid #ff7e05;
+                height: .32rem;
+                line-height: .3rem;
+                border-radius: .08rem;
+                font-weight: 300;
+                font-family: Arial,"Microsoft Yahei",sans-serif;
+              }
+            }
+            p:nth-of-type(2){
+              color: #939393;
+              font-size: .28rem;
+              line-height: .34rem;
+              margin-top: .1rem;
+            }
+}
+
 `
