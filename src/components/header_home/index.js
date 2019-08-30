@@ -14,8 +14,7 @@ export default class Header extends Component {
                 </div>
                <NavLink to="/search">
                     <div className="header_right"><i className="iconfont icon-icon-"></i></div>
-                </NavLink>
-               
+                </NavLink>               
             </HeaderWrapper>
         )
     }
