@@ -11,7 +11,6 @@ class DeleteButton extends Component {
         super(props)
     }
     render() {
-        console.log(this.props);
         return (
             <Fragment>
                 <WingBlank style={{height:"100%",width:"100%"}}>

@@ -23,18 +23,20 @@ class AddressShow extends Component {
             <article>
             {
             addressList.map((item,index)=>(
-              <main>
+              <main key={index} onClick={this.props.selectThisMain.bind(this,index)}>
               <div className="address_information">
-                <i className="iconfont">&#xe69e;</i>
-                <div className="address_information_center">
+                <i className="iconfont" style={{fontSize:item.checked?".36rem":"0rem"}}>&#xe69e;</i>
+                <div className="address_information_center" style={{paddingLeft:item.checked?".2rem":".56rem"}}>
                   <p>
-                    <span>112</span>
-                    <span>17853535691</span>
-                    <span>其他</span>
+                    <span>{item.name}</span>
+                    <span>{item.phone}</span>
+                    <span>{item.homeOrCompany}</span>
                   </p>
-                  <p>  北京市昌平区沙河镇沙河二毛生活小区北京科技职业学院 北京市昌平区沙河镇沙河二毛生活小区北京科技职业学院   </p>
+                  <p>{item.address}</p>
                 </div>
-                <i className="iconfont">&#xe638;</i>
+                <Link to="/updateaddress" onClick={this.props.updateThisMain.bind(this,index)}>
+                  <i className="iconfont">&#xe638;</i>
+                </Link>
               </div>
             </main>
             ))

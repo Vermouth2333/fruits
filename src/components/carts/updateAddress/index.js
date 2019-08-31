@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import {AddAdressWrapper} from "./styled"
 import {connect} from "react-redux" 
 import {mapStateToProps , mapDispatchToProps} from "./connect"
-import { Link ,withRouter} from "react-router-dom";
+import { Link,withRouter } from "react-router-dom";
 
  class AddAddressInformation extends Component {
      constructor(){
@@ -16,7 +16,7 @@ import { Link ,withRouter} from "react-router-dom";
             <AddAdressWrapper>
                 <header>
                     新增收货地址
-                        <div onClick={this.goBack.bind(this)}></div> 
+                    <div onClick={this.goBack.bind(this)}></div>
                 </header>
                 <main>
                     <div>
@@ -44,12 +44,23 @@ import { Link ,withRouter} from "react-router-dom";
                         </label>
                     </div>
                 </main>
-                <footer onClick={this.props.addAddressData.bind(this,name,phone,address)}>
-                <Link to={displayRouter?"/carts":"/addaddress"}>
-                    <div>
-                        保存并使用
+                <footer >
+                    <div onClick={this.props.replaceAddressData.bind(this,name,phone,address)}>
+                        <Link to={displayRouter?"/carts":"/updateaddress"}>
+                            <div>
+                                保存并使用
+                            </div>
+                        </Link>
                     </div>
-                </Link>
+ 
+                    <div onClick={this.props.deleteAddressData.bind(this)}>
+                        <Link to={"/carts"}>
+                            <div>
+                                删除地址
+                            </div>
+                        </Link>    
+                    </div>
+            
                 </footer>
             </AddAdressWrapper>
         )
