@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 import '../../../components/xrrcomponents/iconfont/iconfont.css'
 import { mapStateToProps, mapDispatchToProps } from './connect'
 import BScrollComponent from "../../../common/bscroll";
-import {update_api} from '../../../api/syyapi/home'
+import {update_api,down_api} from '../../../api/syyapi/home'
 class Des extends Component {
     constructor(props){
         super(props) 
@@ -69,9 +69,10 @@ class Des extends Component {
         this.refs.bscroll.handlepullingUp(()=>{           
             this.handleGetData();
         })
+
           //下拉刷新
           this.refs.bscroll.handlepullingDown(()=>{           
-            this.handleGetData();           
+            this.handleGetDataDown();           
         })
     }
     componentWillUnmount(){
@@ -80,7 +81,7 @@ class Des extends Component {
          return;
      }
    }
-    async handleGetData(){
+    async handleGetData(){        
         let data = await update_api();       
         if(data){
             this.setState({
@@ -88,6 +89,15 @@ class Des extends Component {
             })
             sessionStorage.setItem("list",JSON.stringify(this.state.list));           
         }
+    }
+    async handleGetDataDown(){
+       let data=await down_api();
+       if(data){
+        this.setState({
+            list: [...data.data,...this.state.list],               
+        })
+        sessionStorage.setItem("list",JSON.stringify(this.state.list));           
+    }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Des)
