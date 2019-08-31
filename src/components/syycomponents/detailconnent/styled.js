@@ -17,6 +17,7 @@ width:100%;
       width: 7.5rem;
       height: 7.5rem;
       margin-top:.1rem;
+      
     }   
     .info-item {
     padding: .2rem;

@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import React, { Component } from 'react'
 import { DetailsWrapper } from "./styled"
 import "../iconfont/iconfont.css"

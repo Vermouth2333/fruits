@@ -7,19 +7,17 @@ import { connect } from "react-redux"
 import '../../../components/xrrcomponents/iconfont/iconfont.css'
 import { mapStateToProps, mapDispatchToProps } from './connect'
 import BScrollComponent from "../../../common/bscroll";
-import {update_api} from '../../../api/syyapi/home'
+import {update_api,down_api} from '../../../api/syyapi/home'
 class Des extends Component {
     constructor(props){
         super(props) 
         this.state=({
             list:[]
-            // list:this.props.list?(this.props.list.length!==0?this.props.list:JSON.parse(sessionStorage.getItem("list"))):""
         })
     }
     render() { 
 
-        let {list}=this.state.list.length===0?this.props:this.state  
-           
+        let {list}=this.state.list.length===0?this.props:this.state            
         return (
             <div style={{ height: "100%" }}>
                 <Header />
@@ -58,10 +56,10 @@ class Des extends Component {
     componentWillUpdate(newProps,newState){
         if(newState.list !==this.state.list){          
             this.refs.bscroll.handleRestpullingUp();
-            // this.refs.bscroll.handlefinishPullDown();
+            this.refs.bscroll.handlefinishPullDown();
         }        
     }
-    componentDidMount() {      
+    componentDidMount() {
         if(sessionStorage.getItem("list")){
             this.setState({
                 list:JSON.parse(sessionStorage.getItem("list"))
@@ -72,14 +70,18 @@ class Des extends Component {
             this.handleGetData();
         })
 
-        //   //下拉刷新
-        //   this.refs.bscroll.handlepullingDown(()=>{           
-        //     this.handleGetData();           
-        // })
+          //下拉刷新
+          this.refs.bscroll.handlepullingDown(()=>{           
+            this.handleGetDataDown();           
+        })
     }
-
-
-    async handleGetData(){
+    componentWillUnmount(){
+        // 卸载异步操作设置状态
+        this.setState = (state, callback) => {
+         return;
+     }
+   }
+    async handleGetData(){        
         let data = await update_api();       
         if(data){
             this.setState({
@@ -87,8 +89,15 @@ class Des extends Component {
             })
             sessionStorage.setItem("list",JSON.stringify(this.state.list));           
         }
-
     }
-
+    async handleGetDataDown(){
+       let data=await down_api();
+       if(data){
+        this.setState({
+            list: [...data.data,...this.state.list],               
+        })
+        sessionStorage.setItem("list",JSON.stringify(this.state.list));           
+    }
+    }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Des)

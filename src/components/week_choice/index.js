@@ -1,6 +1,6 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { Component } from 'react'
 import { WeekWrapper } from "./styled";
-//import { setState } from 'expect/build/jestMatchersObject';
 import Fruit_Floor2 from './fruit_floor2'
 import {NavLink} from "react-router-dom";
 import BScrollComponent from "@common/bscroll";
@@ -13,7 +13,7 @@ class WeekChoice extends Component {
         return (
             <BScrollComponent ref="bscroll">
                 <WeekWrapper>
-                    <div id='banner'>
+                    <div id='banner1'>
                         <Banner/>    
                     </div>             
                     <div className='banner_b'><img src={list[2]?list[2].content[0].image:''} alt=''/> </div>                                     
@@ -58,12 +58,13 @@ class WeekChoice extends Component {
     }
     async componentDidMount() {
        this.props.handleHome()
-   
-        // this.refs.bscroll.handlepullingUp(() => {
-        //     this.handleWeekGetData();
-        // })
 }
-
+componentWillUnmount(){
+    // 卸载异步操作设置状态
+    this.setState = (state, callback) => {
+     return;
+ }
+}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeekChoice)

@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const WeekWrapper = styled.div`
     width:100%;
     background:#fff;
-    #banner{
+    #banner1{
         width:7.5rem;
         height:3.2rem;
         background:#ccc;

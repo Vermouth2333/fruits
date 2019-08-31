@@ -41,5 +41,11 @@ class City extends Component {
             </BScrollComponent >
         )
     }
+    componentDidMount(){
+       this.handleGetData.bind(this)
+    }
+    handleGetData(){
+        
+    }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(City)

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react'
 import { DetailWrapper } from "./styled"
 import Swiper from 'swiper/dist/js/swiper.js'

@@ -14,7 +14,8 @@ export const city_api = ()=>http.get("/api/cityList")
 
 // 上拉加载https://wap.fruitday.com/v3/product/sub_category_list?store_id_list=3&class2_id=130&class3_id=131&sort_type=1&tms_region_type=1
 export const update_api = ()=>http.get("v3/product/sub_category_list?store_id_list=3&class2_id=130&class3_id=131&sort_type=1&tms_region_type=1")
-
+// 下拉刷新https://wap.fruitday.com/v3/search/product?keyword=%E7%93%9C&store_id_list=3&tms_region_type=1&page_size=50&curr_page=1
+export const down_api = ()=>http.get("v3/search/product?keyword=%E7%93%9C&store_id_list=3&tms_region_type=1&page_size=50&curr_page=1")
 
 // 详情列表的https://wap.fruitday.com//v3/product/detail?store_id_list=3&product_id=35692&store_id=&delivery_code=3&iswap=1
 export const Details_api = (store_id_list=3,product_id,store_id='',delivery_code=3,iswap=1)=>http.get("/product/detail",{store_id_list,product_id,store_id,delivery_code,iswap})

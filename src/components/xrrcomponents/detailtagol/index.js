@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { DetailTogalWrapper } from "./styled"
 import "../iconfont/iconfont.css"
-import { talks_more, talks_up } from "@api/xrrapi"
+import { talks_more } from "@api/xrrapi"
 import { withRouter } from "react-router-dom";
 import BScrollComponent from "@common/bscroll";
 
@@ -56,8 +56,8 @@ class DetailTagol extends Component {
                                 </dl>
                                 <div className="comment-tab-menu">
                                     <ul>
-                                        <li className={togal == 1 ? "active" : ""} onClick={this.handleqiehuan.bind(this, 1)}>评价 982</li>
-                                        <li className={togal == 2 ? "active" : ""} onClick={this.handleqiehuan.bind(this, 2)}>晒图 256</li>
+                                        <li className={togal === 1 ? "active" : ""} onClick={this.handleqiehuan.bind(this, 1)}>评价 982</li>
+                                        <li className={togal === 2 ? "active" : ""} onClick={this.handleqiehuan.bind(this, 2)}>晒图 256</li>
                                     </ul>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@ class DetailTagol extends Component {
     }
     componentWillUnmount() {
         // 卸载异步操作设置状态
-        this.setState = (state, callback) => {
+        this.setState = () => {
             return;
         }
     }

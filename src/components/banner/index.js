@@ -8,7 +8,7 @@ import { connect } from "react-redux";
   render() {   
     let {list}=this.props    
     return (    
-        <Carousel autoplay >
+        <Carousel autoplay style={{width:"100%",height:"100%"}}>
         {
           list[0]?list[0].content.map((item,index)=>(
             <div key={index} >

@@ -1,3 +1,6 @@
+/* eslint-disable default-case */
+/* eslint-disable react/no-direct-mutation-state */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React, { Component } from 'react'
 import { HeaderListWrapper } from "./styled"
 import "../iconfont/iconfont.css"
@@ -35,7 +38,7 @@ class HeaderList extends Component {
                 <header>
                     <nav>
                         <div className="back">
-                            <a href="#/type" className="iconfont icon-zuojiantou"></a>
+                            <a href="#/type" className="iconfont icon-zuojiantou" ></a>
                         </div>
                         <div className="text">{fatherClass.name}</div>
                         <a href="#/search" className="next">
@@ -47,7 +50,7 @@ class HeaderList extends Component {
                             {
                                 brotherClass.map((item, index) => (
                                     <div key={index}
-                                        className={activeindex == index ? "swiper-slide active" : "swiper-slide"}
+                                        className={activeindex === index ? "swiper-slide active" : "swiper-slide"}
                                         onClick={this.handleNavList.bind(this, index, item.id)}
                                     >{item.name}</div>
                                 ))
@@ -56,9 +59,9 @@ class HeaderList extends Component {
                     </div>
                     <div id="sort">
                         <ul className="sort" >
-                            <li className={status == "1" ? "active" : ""} onClick={this.handleSort.bind(this, 1)}>综合</li>
-                            <li className={status == "2" ? "active" : ""} onClick={this.handleSort.bind(this, 2)}>销量</li>
-                            <li className={status == "3" ? "active" : ""} onClick={this.handleSort.bind(this, 3)}>价格
+                            <li className={status === "1" ? "active" : ""} onClick={this.handleSort.bind(this, 1)}>综合</li>
+                            <li className={status === "2" ? "active" : ""} onClick={this.handleSort.bind(this, 2)}>销量</li>
+                            <li className={status === "3" ? "active" : ""} onClick={this.handleSort.bind(this, 3)}>价格
                             <em className="sort-price "></em>                            </li>
                         </ul>
                     </div>
@@ -178,7 +181,7 @@ class HeaderList extends Component {
                 this.setState({
                     status: 3
                 })
-                if (num1 % 2 == 0) {
+                if (num1 % 2 === 0) {
                     console.log(num1, 111)
                     let data2 = await list_kinds_types(3, this.state.class2_id, this.state.navid, 3, 1);
                     this.setState({
