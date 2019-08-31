@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { CartsWrapper } from "./styled"
 import "../iconfont/iconfont.css"
 import store from "@store"
-export default class CartsLeft extends Component {
+import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from './connect';
+class CartsLeft extends Component {
     constructor(){
         super()
 
@@ -17,14 +19,16 @@ export default class CartsLeft extends Component {
         store.subscribe(this.handleUpdate.bind(this))
     }
     render() {
-        let {greennum} = this.state.TypeList
+        let {cartsGoods} =this.props;
+        let num=this.props.totalNum(cartsGoods);
+
         // console.log(greennum)
         // let {num}=this.state
         return (
             <CartsWrapper>
                 <a className="cart-btn" href="#/carts" style={{ display: "inline" }}>
                     <i className="iconfont icon-gouwuche"></i>
-                    <span id="cart-num">{greennum}</span>
+                    <span id="cart-num">{num}</span>
                 </a>
             </CartsWrapper>
         )
@@ -49,3 +53,4 @@ export default class CartsLeft extends Component {
     //     return sum;
     // }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(CartsLeft);
