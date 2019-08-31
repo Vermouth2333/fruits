@@ -18,3 +18,18 @@ export const deleteAllShop = createAction("DELETE_ALL_SHOP");
 export const showAddressToTrue = createAction("SHOW_ADDRESS");
 //隐藏地址
 export const showAddressToFalse = createAction("HIDE_ADDRESS");                                                                                                                       
+//修改input数据
+export const changeAddressInput = createAction("CHANGE_ADDRESS_INPUT",(val,inputType)=>({
+    val,
+    inputType,
+}));   
+//添加地址信息
+export const addAddressData = createAction("ADD_ADDRESS_DATA");
+//选中地址栏中的地址
+export const selectThisMain = createAction("SELECT_THIS_MAIN",(index)=>index);
+//更新选中的数据
+export const updateThisMain = createAction("UPDATE_THIS_MAIN",(inx)=>inx);
+//替换选中的数据
+export const replaceAddressData = createAction("REPLACE_ADDRESS_DATA");
+//删除选中的数据
+export const deletesAddressData = createAction("DELETE_ADDRESS_DATA");

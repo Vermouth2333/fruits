@@ -43,7 +43,15 @@ export const cityData = createAction("CITY_DATA",(val)=>val);
 export const cityAsyncData = ()=>{
     return async (dispatch)=>{
         let data=await city_list();
-        console.log(data)
         dispatch(cityData(data))
+    }
+}
+
+
+
+export const detailfooter = createAction("DETAIL_FOOTER",(val)=>val);
+export const detailAsyncfooter = (val)=>{
+    return async (dispatch)=>{
+        dispatch(detailfooter(val))
     }
 }

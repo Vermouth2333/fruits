@@ -30,12 +30,12 @@ import {withRouter} from 'react-router-dom'
                     <div className="more">
                         <i className="iconfont icon-shenglvehao" onClick={this.handleShow.bind(this)}></i>
                         <div className="more-bubble" style={{ display: flag ? "block" : "none" }} >
-                            <a href="/home">
+                            <a href="#/home">
                                 <i className="iconfont icon-index"></i>首页</a>
-                            <a href="/search" className="search">
+                            <a href="#/search" className="search">
                                 <i className="iconfont icon-icon-"></i>
                                 搜索</a>
-                            <a href="/type">
+                            <a href="#/type">
                                 <i className="iconfont icon-leimupinleifenleileibie"></i>
                                 分类</a>
                         </div>

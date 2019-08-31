@@ -11,11 +11,12 @@ export const HomeAsyncAction=()=>{
 }
 
 // 搜索页
-export const FindAction=createAction('FIND_ACTION',(val)=>val)
+export const FindAction=createAction('FIND_ACTION',(val,item)=>({val,item}))
 export const FindAsyncAction=(val)=>{
     return async(dispatch)=>{
         let data=await find_api(val);       
-        dispatch(FindAction(data))
+        dispatch(FindAction(data,val))
+         
     }
 }
 // 
@@ -23,8 +24,13 @@ export const FindAsyncAction=(val)=>{
 export const ToDesAction=createAction('DES_ACTION',(val,value)=>({val,value}))
 export const ToDesAsyncAction=(value)=>{   
     return async(dispatch)=>{      
-        let data=await keys_api(value,3,1,50,1);                  
-        dispatch(ToDesAction(data,value))        
+        let data=await keys_api(value,3,1,50,1);                        
+        dispatch(ToDesAction(data,value)) 
+        if(!sessionStorage.getItem('list')){            
+            sessionStorage.setItem("list", JSON.stringify(data.data))                       
+        }else{
+            sessionStorage.clear()
+        }       
     }
 }
 // 城市列表
@@ -40,8 +46,15 @@ export const DetailsAction=createAction('DETAILS_ACTION',(val)=>val)
 export const DetailsAsyncAction=(id)=>{   
     return async(dispatch)=>{          
         let data=await Details_api(3,id,'',3,1);                          
-        dispatch(DetailsAction(data))        
+        dispatch(DetailsAction(data))
+        if(sessionStorage.getItem('list')){            
+            sessionStorage.clear()                 
+        }         
     }
 }
 // 切换详情页 Toggle_action
 export const Toggle_action=createAction('TOGGLE_ACTION',(val)=>val)
+
+export const ClearAction=createAction('CLEAR_ACTION',(val)=>val)
+
+// ClearAction

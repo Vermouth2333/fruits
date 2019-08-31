@@ -12,6 +12,7 @@ import {
     City,
     Details_s,
     AddAddress,
+    UpdateAdress,
 } from "@pages"
 
 export  const tabBarRoute=[
@@ -122,6 +123,14 @@ export const noTabBarRoute=[
     {
         path:'/addaddress',
         component:AddAddress,
+        meta:{
+            flag:false,        
+        },
+        name:'地址添加',             
+    },
+    {
+        path:'/updateaddress',
+        component:UpdateAdress,
         meta:{
             flag:false,        
         },

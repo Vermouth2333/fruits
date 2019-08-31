@@ -11,20 +11,20 @@ export const AddAdressWrapper = styled.div`
         font-size: .34rem;
         line-height:.8rem;
         border-bottom: .02rem solid #d8d8d8;
-        position:relative;      
-            div{
-                position:absolute;
-                top:0;
-                bottom:0;
-                left:.4rem;
-                margin:auto;
-                width: .27rem;
-                height: .27rem;
-                border-top: 4px solid #333;
-                border-right: 4px solid #333;
-                transform: rotate(-135deg);
-                display: block;
-            }
+        position:relative;
+        div{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:.4rem;
+            margin:auto;
+            width: .27rem;
+            height: .27rem;
+            border-top: 4px solid #333;
+            border-right: 4px solid #333;
+            transform: rotate(-135deg);
+            display: block;
+        }
     }
     main{
         padding-left:.2rem;
@@ -71,22 +71,45 @@ export const AddAdressWrapper = styled.div`
         }
     }
     footer{
-        height:1.44rem;
+        height:2.88rem;
         position: relative;
-        div{
-            position:absolute;
-            bottom:0;
-            left:0;
-            right:0;
-            width:6.7rem;
-            height:.94rem;
-            background-color:#ff8000;
-            margin:auto;
-            text-align:center;
-            line-height:.94rem;
-            font-size: .34rem;
-            color: #fff;
+        div:nth-of-type(1){
+            a{
+                div:nth-of-type(1){
+                    position:absolute;
+                    bottom:1.44rem;
+                    left:0;
+                    right:0;
+                    width:6.7rem;
+                    height:.94rem;
+                    background-color:#ff8000;
+                    margin:auto;
+                    text-align:center;
+                    line-height:.94rem;
+                    font-size: .34rem;
+                    color: #fff;
+                }
+            }
         }
+        div:nth-of-type(2){
+            a{
+                div:nth-of-type(1){
+                    position:absolute;
+                    bottom:0;
+                    left:0;
+                    right:0;
+                    width:6.7rem;
+                    height:.94rem;
+                    background-color: #fff;
+                    margin:auto;
+                    text-align:center;
+                    line-height:.94rem;
+                    font-size: .34rem;
+                    color: #878787;
+                }
+            }
+        }
+     
     }
   
 `

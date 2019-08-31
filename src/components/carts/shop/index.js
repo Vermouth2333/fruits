@@ -8,8 +8,7 @@ import { mapStateToProps, mapDispatchToProps } from './connect';
 
 class Shop extends Component {
     render() {
-        let {addressListLength} = this.props;
-        console.log(addressListLength);
+        let {addressListLength,name,phone,address,homeOrCompany} = this.props;
         return (
                 <ShopCenterWrapper>
                     <BScrollComponent>
@@ -20,11 +19,11 @@ class Shop extends Component {
                                     <span style={{display:addressListLength===0?"inline":"none"}}>添加地址</span>
                                         <main style={{display:addressListLength===0?"none":"block"}}>
                                             <p>
-                                                <span>112</span>
-                                                <span>17853535691</span>
-                                                <span>其他</span>
+                                                <span>{name}</span>
+                                                <span>{phone}</span>
+                                                <span>{homeOrCompany}</span>
                                             </p>
-                                            <p>  北京市昌平区沙河镇沙河二毛生活小区北京科技职业学院 北京市昌平区沙河镇沙河二毛生活小区北京科技职业学院   </p>
+                                            <p>{address}</p>
                                         </main>
                                     <div></div>
                                 </div>

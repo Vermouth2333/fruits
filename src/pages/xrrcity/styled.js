@@ -79,5 +79,18 @@ export const CityWrapper = styled.div`
 }
 }
 
-
+.nav {
+    position: fixed;
+    top: 1.5rem;
+    top: 11vh;
+    right: -.1rem;
+    width: .7rem;
+    z-index: 10;
+    text-align: center;
+    font-size: .24rem;
+    .nav-item {
+    height: .32rem;
+    height: 2.8vh;
+}
+}
 `

@@ -13,7 +13,7 @@ class Main extends Component {
     }
     render() {
         let { arr} = this.state
-        let { flag, arr_f } = this.props
+        let { flag, arr_f } = this.props      
         return (
             <BodySWrapper>
                 <div style={{ display: flag ? "block" : "none" }} className='search'>

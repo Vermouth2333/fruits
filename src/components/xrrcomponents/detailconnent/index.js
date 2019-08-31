@@ -7,7 +7,7 @@ import "../iconfont/iconfont.css"
 import { detail_types, detail_talks } from "@api/xrrapi"
 import { withRouter } from "react-router-dom";
 import store from "@store"
-import {sendFlagAsyncToDetail } from "@actions/xrractions/actionCreator.js"
+import { sendFlagAsyncToDetail,detailAsyncfooter } from "@actions/xrractions/actionCreator.js"
 
 const url = require("url");
 
@@ -139,6 +139,7 @@ class DetailConnent extends Component {
         });
 
         this.handleGetText();
+        
 
     }
     componentWillUnmount() {
@@ -162,10 +163,14 @@ class DetailConnent extends Component {
             eat: data1.data.eat,
             show: data1.data.show
         })
+        this.handlesendfooter();
     }
-    handleSeeTogal(){
-        let obj={flag1:false,flag2:false,flag3:true}
+    handleSeeTogal() {
+        let obj = { flag1: false, flag2: false, flag3: true }
         store.dispatch(sendFlagAsyncToDetail(obj))
-}
+    }
+    handlesendfooter() {
+        store.dispatch(detailAsyncfooter(this.state.productInfo))
+    }
 }
 export default withRouter(DetailConnent)

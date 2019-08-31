@@ -20,6 +20,7 @@ export const mapDispatchToProps = (dispatch)=>({
                 dispatch(sendAsyncDataToCarts(obj))
             },
             handleToDetails(id){
+                // sessionStorage.clear()
                 dispatch(DetailsAsyncAction(id))
             }
 })

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {HeaderSWrapper} from './styled'
-
 import {connect} from "react-redux"
 import {mapStateToProps, mapDispatchToProps} from './connect'
 import {withRouter,Link} from 'react-router-dom'
@@ -8,7 +7,7 @@ import {withRouter,Link} from 'react-router-dom'
      constructor(props){
          super(props)
          this.state={
-             val:this.props.inputVal
+             val:this.props.inputVal?this.props.inputVal:this.props.text
          }
      }
     render(){        
@@ -26,6 +25,7 @@ import {withRouter,Link} from 'react-router-dom'
             </HeaderSWrapper>
         )
     }
+    
    
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))
