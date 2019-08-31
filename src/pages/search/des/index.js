@@ -58,10 +58,10 @@ class Des extends Component {
     componentWillUpdate(newProps,newState){
         if(newState.list !==this.state.list){          
             this.refs.bscroll.handleRestpullingUp();
-            // this.refs.bscroll.handlefinishPullDown();
+            this.refs.bscroll.handlefinishPullDown();
         }        
     }
-    componentDidMount() {      
+    componentDidMount() {
         if(sessionStorage.getItem("list")){
             this.setState({
                 list:JSON.parse(sessionStorage.getItem("list"))
@@ -71,11 +71,10 @@ class Des extends Component {
         this.refs.bscroll.handlepullingUp(()=>{           
             this.handleGetData();
         })
-
-        //   //下拉刷新
-        //   this.refs.bscroll.handlepullingDown(()=>{           
-        //     this.handleGetData();           
-        // })
+          //下拉刷新
+          this.refs.bscroll.handlepullingDown(()=>{           
+            this.handleGetData();           
+        })
     }
 
 
