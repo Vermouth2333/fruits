@@ -32,6 +32,7 @@ export const HeaderWrapper = styled.div`
             width: auto;
             height:100%;
             font-weight:500;
+            line-height:.76rem;
             line-height:0.76rem;
             color: #65a032;
             white-space: nowrap;
@@ -47,6 +48,7 @@ export const HeaderWrapper = styled.div`
         position:absolute;
         right:0rem;
         top:0rem;
+        line-height:.76rem;
         padding-right:.32rem;                     
         i{
             font-size:.5rem;

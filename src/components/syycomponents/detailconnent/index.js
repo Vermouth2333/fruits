@@ -3,7 +3,6 @@ import { DetailWrapper } from "./styled"
 // import 'swiper/dist/css/swiper.css'
 import Banner from '../../banner_detail'
 import "../iconfont/iconfont.css"
-import BScrollComponent from "@common/bscroll";
 import {comment_api}from '../../../api/syyapi/home'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
@@ -22,8 +21,7 @@ const url =require ('url')
     render() {
         let {data,num}=this.props     
         return (
-            <DetailWrapper style={{display:num===1?'block':'none'}}>
-                <BScrollComponent>
+            <DetailWrapper style={{display:num===1?'block':'none'}}>                
                     <div className="connect">
                         <div className="main">
                             <div className='banner'>
@@ -44,9 +42,6 @@ const url =require ('url')
                                     <em>{data?data.productItem.sendTimeMsg:""}</em>
                                 </div>
                             </div>
-
-
-
                             <div className="address-item">
                                 <span className="title">送至</span>
                                 <h4>
@@ -95,12 +90,18 @@ const url =require ('url')
                             </div>
                         </div>
                     </div>
-                </BScrollComponent>
+                
             </DetailWrapper>
         )
     }
   componentDidMount(){
     this.handleGetData()
+  }
+  componentWillUnmount(){
+       // 卸载异步操作设置状态
+       this.setState = (state, callback) => {
+        return;
+    }
   }
     async handleGetData(){
        

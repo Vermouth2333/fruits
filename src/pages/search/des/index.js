@@ -13,13 +13,11 @@ class Des extends Component {
         super(props) 
         this.state=({
             list:[]
-            // list:this.props.list?(this.props.list.length!==0?this.props.list:JSON.parse(sessionStorage.getItem("list"))):""
         })
     }
     render() { 
 
-        let {list}=this.state.list.length===0?this.props:this.state  
-           
+        let {list}=this.state.list.length===0?this.props:this.state            
         return (
             <div style={{ height: "100%" }}>
                 <Header />
@@ -77,8 +75,12 @@ class Des extends Component {
         //     this.handleGetData();           
         // })
     }
-
-
+    componentWillUnmount(){
+        // 卸载异步操作设置状态
+        this.setState = (state, callback) => {
+         return;
+     }
+   }
     async handleGetData(){
         let data = await update_api();       
         if(data){
@@ -87,8 +89,6 @@ class Des extends Component {
             })
             sessionStorage.setItem("list",JSON.stringify(this.state.list));           
         }
-
     }
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Des)

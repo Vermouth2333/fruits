@@ -1,17 +1,18 @@
-.ant-carousel .slick-slide {
+#banner1 .ant-carousel .slick-slide {
   width:100%;
   height:3.2rem;
     text-align: center;   
     background: #364d79;
     overflow: hidden;  
   } 
-  .ant-carousel .slick-slide h3 {
+  #banner1 .ant-carousel .slick-slide h3 {
     color: #fff; 
     width:100%;
     height:100%;
     margin:0 !important;  
   }
-  .image{
+  #banner1 .image{
     width:100%;
     height:100%;
+    display: block;
   }
