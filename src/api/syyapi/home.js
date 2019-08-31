@@ -12,6 +12,10 @@ export const Detail_api=(store_id_list=3,product_id,store_id,delivery_code=3,isw
 export const city_api = ()=>http.get("/api/cityList")
 // https://wap.fruitday.com//v3/region/site_list
 
+// 上拉加载https://wap.fruitday.com/v3/product/sub_category_list?store_id_list=3&class2_id=130&class3_id=131&sort_type=1&tms_region_type=1
+export const update_api = ()=>http.get("v3/product/sub_category_list?store_id_list=3&class2_id=130&class3_id=131&sort_type=1&tms_region_type=1")
+
+
 // 详情列表的https://wap.fruitday.com//v3/product/detail?store_id_list=3&product_id=35692&store_id=&delivery_code=3&iswap=1
 export const Details_api = (store_id_list=3,product_id,store_id='',delivery_code=3,iswap=1)=>http.get("/product/detail",{store_id_list,product_id,store_id,delivery_code,iswap})
 // 评论https://wap.fruitday.com//v3/comment/rate_and_comment?product_id=22815

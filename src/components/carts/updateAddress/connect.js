@@ -1,4 +1,4 @@
-import {changeAddressInput,addAddressData} from "../../../actions/veractions/actionCreator"
+import {changeAddressInput,replaceAddressData,deletesAddressData} from "../../../actions/veractions/actionCreator"
 
 export const mapStateToProps = (state) =>({
     name:state.address.name,
@@ -12,7 +12,7 @@ export const mapDispatchToProps = (dispatch) =>({
     changeAddressInput(inputType,e){
         dispatch(changeAddressInput(e.target.value,inputType));
     },
-    addAddressData(name,phone,address){
+    replaceAddressData(name,phone,address){
         let phoneReg=/^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
         if(!phoneReg.test(phone)){
             alert("请输入正确的手机号");
@@ -21,7 +21,10 @@ export const mapDispatchToProps = (dispatch) =>({
         }else if(name===""){
             alert("请输入收货人姓名");
         }else{
-            dispatch(addAddressData());
+            dispatch(replaceAddressData());
         }
+    },
+    deleteAddressData(){
+        dispatch(deletesAddressData());
     }
 })

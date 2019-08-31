@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 import React, { Component } from 'react'
 import Header from '../header_search'
 import { ContentSWrapper } from './styled'
@@ -6,21 +7,19 @@ import { connect } from "react-redux"
 import '../../../components/xrrcomponents/iconfont/iconfont.css'
 import { mapStateToProps, mapDispatchToProps } from './connect'
 import BScrollComponent from "../../../common/bscroll";
-
+import {update_api} from '../../../api/syyapi/home'
 class Des extends Component {
-    constructor() {
-        super()
-        this.state = {
-            list: []
-        }
+    constructor(props){
+        super(props) 
+        this.state=({
+            list:[]
+            // list:this.props.list?(this.props.list.length!==0?this.props.list:JSON.parse(sessionStorage.getItem("list"))):""
+        })
     }
+    render() { 
 
-    render() {
-        let { list } = this.props
-        sessionStorage.setItem("list", JSON.stringify(this.props.list))
-        // this.setState ({
-        //     list:JSON.parse(sessionStorage.getItem("list"))?sessionStorage.setItem("list",JSON.stringify(this.props)):this.props.list 
-        // })       
+        let {list}=this.state.list.length===0?this.props:this.state  
+           
         return (
             <div style={{ height: "100%" }}>
                 <Header />
@@ -53,27 +52,43 @@ class Des extends Component {
                         </BScrollComponent>
                     </div>
                 </ContentSWrapper>
-
             </div>
         )
     }
-    componentDidMount(){
-        
+    componentWillUpdate(newProps,newState){
+        if(newState.list !==this.state.list){          
+            this.refs.bscroll.handleRestpullingUp();
+            // this.refs.bscroll.handlefinishPullDown();
+        }        
+    }
+    componentDidMount() {      
+        if(sessionStorage.getItem("list")){
+            this.setState({
+                list:JSON.parse(sessionStorage.getItem("list"))
+            })
+        }
+        // 上拉加载
+        this.refs.bscroll.handlepullingUp(()=>{           
+            this.handleGetData();
+        })
+
+        //   //下拉刷新
+        //   this.refs.bscroll.handlepullingDown(()=>{           
+        //     this.handleGetData();           
+        // })
+    }
+
+
+    async handleGetData(){
+        let data = await update_api();       
+        if(data){
+            this.setState({
+                list: [...this.state.list,...data.data.productGroup],               
+            })
+            sessionStorage.setItem("list",JSON.stringify(this.state.list));           
+        }
+
     }
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Des)
-// // <Link to={"/detail?id="+item.id+"&name="+item.name}></Link>
-// componentDidMount(){
-//     if(sessionStorage.getItem("list")){
-//         this.setState({
-//             list:JSON.parse(sessionStorage.getItem("list"))
-//         })                 
-//     }else{
-//         this.setState({
-//             list:this.props
-//         }) 
-//         console.log(this.state.list,"componentDidMount")
-//     sessionStorage.setItem("list",JSON.stringify(this.props.list))                   
-//     }
-// } 

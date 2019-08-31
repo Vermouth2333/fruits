@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import {HeaderWrapper} from "./styled"
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from './connect';
+import {withRouter} from "react-router-dom"
 
 class Header extends Component {
     render() {
         let {HeadFlag} = this.props;
         return (
             <HeaderWrapper>
-                <div>
+                <div onClick={this.goBack.bind(this)}>
                     <div></div>
                 </div>
                 <h2>购物车</h2>
@@ -17,5 +18,8 @@ class Header extends Component {
             </HeaderWrapper>
         )
     }
+    goBack(){
+        this.props.history.goBack();
+    }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

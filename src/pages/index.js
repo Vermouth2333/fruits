@@ -59,6 +59,11 @@ const AddAddress = Loadable({
     loader:()=>import("./addAdress"),
     loading:Loading
 })
+const UpdateAdress = Loadable({
+    loader:()=>import("./updateAddress"),
+    loading:Loading
+})
+
 
 export {
     Home,
@@ -74,4 +79,5 @@ export {
     City,
     Details_s,
     AddAddress,
+    UpdateAdress,
 }
