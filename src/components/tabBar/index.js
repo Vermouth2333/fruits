@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import {TabBarWrapper} from "./styled"
 import {tabBarRoute} from "@router";
 import {NavLink} from "react-router-dom";
-export default class TabBar extends Component {
+import {connect} from "react-redux"
+import { mapStateToProps, mapDispatchToProps } from './connect';
+
+class TabBar extends Component {
     render() {
+        let {cartsGoods} =this.props;
+        let num=this.props.totalNum(cartsGoods);
         return (
             <TabBarWrapper>
                     <ul>
@@ -13,6 +18,7 @@ export default class TabBar extends Component {
                                     <NavLink to={item.path}>
                                         <i className="iconfont">{item.icon}</i>
                                         <span>{item.name}</span>
+                                        <b style={{display:item.meta.shoNum===true&&num!==0?"block":"none"}}>{num}</b>
                                     </NavLink>
                                 </li>
                             ))
@@ -22,3 +28,4 @@ export default class TabBar extends Component {
         )
     }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(TabBar);
