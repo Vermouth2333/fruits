@@ -15,11 +15,12 @@ import {
     UpdateAdress,
 } from "@pages"
 
-export  const tabBarRoute=[
+export  const  tabBarRoute=[
     {
         path:'/home',
         component:Home,
         meta:{
+            shoNum:false,
             flag:true,
         },
         name:'首页',
@@ -29,6 +30,7 @@ export  const tabBarRoute=[
         path:'/type',
         component:Type,
         meta:{
+            shoNum:false,
             flag:true,
         },
         name:'分类',
@@ -38,6 +40,7 @@ export  const tabBarRoute=[
         path:'/carts',
         component:Carts,
         meta:{
+            shoNum:true,
             flag:true,
         },
         name:'购物车',
@@ -47,6 +50,7 @@ export  const tabBarRoute=[
         path:'/mine',
         component:Mine,
         meta:{
+            shoNum:false,
             flag:true,
             auth:false,
         },
@@ -103,7 +107,6 @@ export const noTabBarRoute=[
         },
         name:'详情',
     },
-
     {
         path:'/city',
         component:City,

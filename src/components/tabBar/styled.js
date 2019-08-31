@@ -25,6 +25,7 @@ export const TabBarWrapper = styled.div`
             flex-direction: column;
             justify-content:center;
             align-items:center;
+            position: relative;
         }
         i{
             font-size:.4rem;
@@ -34,6 +35,20 @@ export const TabBarWrapper = styled.div`
         }
         .active{
             color:#75a739;
+        }
+        b{
+            background: #ff4848;
+            line-height: .28rem;
+            border-radius: .3rem;
+            min-width: .28rem;
+            padding: 0 .07rem;
+            color: #fff;
+            top: .06rem;
+            right: auto;
+            bottom: auto;
+            left: 50%;
+            position: absolute;
+            margin-left: .24rem;
         }
     }
 `
