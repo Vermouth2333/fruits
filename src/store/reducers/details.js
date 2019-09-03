@@ -8,8 +8,7 @@ export default handleActions({
     DETAILS_ACTION:(state,action)=>{              
         let newState=Object.assign({},state);             
         newState.list_banner=action.payload.data.templatePhoto  
-        newState.data=action.payload.data  
-               
+        newState.data=action.payload.data                 
         return newState
     },
     TOGGLE_ACTION:(state,action)=>{              

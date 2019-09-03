@@ -10,8 +10,8 @@
     line-height: 0.6rem;
     padding-left: 0.26rem;
     font-size: 0.28rem;
-  }
-  
+    background:white
+  }  
   .hot_city_list,
   .city_list_name {
     width: 96%;

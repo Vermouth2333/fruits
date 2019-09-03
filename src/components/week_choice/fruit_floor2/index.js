@@ -12,7 +12,7 @@ import { mapStateToProps, mapDispatchToProps } from "./connect";
     }
     render() {
         let {list} =this.props ;
-        let {num}=this.state;
+       
        
        
         return (
@@ -28,7 +28,7 @@ import { mapStateToProps, mapDispatchToProps } from "./connect";
                     <p className='text'>{item.subtitle}</p>
                     <p className='price'>
                         <span>￥{item.price}/{item.volume}</span>
-                        <i className='iconfont icon-add_circle'></i>
+                        <i className='iconfont icon-add_circle' onClick={this.props.handleToCarts.bind(this,item)}></i>
                     </p>
                 </li>
             
